@@ -1,0 +1,53 @@
+.room-wrapper{
+    display: flex;
+    height: 750px;
+    background: -webkit-linear-gradient(left,#2980b9, #2c3e50);
+}
+.videochat-wrapper{
+
+    position: relative;
+    margin-right: auto;
+    border-style: solid;
+    width:80%;
+}
+.videochat-header{
+    display:flex;
+    height:40px;
+    color:white;
+}
+.videochat-group{
+    display:flex;
+    height:400px;
+}
+.videochat-room{
+    width:50%;
+    background: -webkit-linear-gradient(left,#485563, #29434c);
+}
+.video-box{
+    border-style:solid;
+    height:80%;
+    width:90%;
+    margin:auto;
+}
+.video-toolbar{
+    position: absolute;
+    bottom: 0;
+    width:100%;
+}
+.video-toolbar-group{
+    display: flex;
+    justify-content: center;
+}
+.video-toolbar-itemtext{
+    bottom: 0;   
+}
+.messages-wrapper{
+    border-style: solid;
+    width:20%;
+}
+button{
+    opacity: 0.8;
+    color:white;
+    height:50px;
+    width:100px;    
+}
