@@ -1,82 +1,24 @@
-navigator.getUserMedia = navigator.getUserMedia ||
-                         navigator.webkitGetUserMedia ||
-                         navigator.mozGetUserMedia;
-
-var SKYWAY_API_KEY = '1061e0f9-3006-4af2-8266-82ce6c34b677';
-var peer =null;
-var selfId = null;
-var localStream = null;
-
-function initializePeer(callback) {
-  peer = new Peer({ key: SKYWAY_API_KEY });
-  peer.on('open', function(id) {
-    selfId = id;
-    callback();
+  // MultiParty インスタンスを生成
+  multiparty = new MultiParty( {
+    "key": "1061e0f9-3006-4af2-8266-82ce6c34b677",  /* SkyWay keyを指定 */
+    "room": 'groupA' /* groupAの人としか繋がらない */
   });
-  peer.on('call', function(mediaConnection) {
-    mediaConnection.answer(localStream);
-    settingMediaConnection(mediaConnection);
+ 
+  multiparty.on('my_ms', function(video) {
+    // 自分のvideoを表示
+    var vNode = MultiParty.util.createVideoNode(video);
+    $(vNode).appendTo("#myVideo");
+  }).on('peer_ms', function(video) {
+    // peer1のvideoを表示
+    var vNode = MultiParty.util.createVideoNode(video);
+    $(vNode).appendTo("#peerVideo1");
+    // peer2のvideoを表示
+    var vNode = MultiParty.util.createVideoNode(video);
+    $(vNode).appendTo("#peerVideo2");
+  }).on('ms_close', function(peer_id) {
+    // peerが切れたら、対象のvideoノードを削除する
+    $("#"+peer_id).remove();
   });
-  peer.on('close', function(){
-    peer.destroy();
-  });
-  peer.on('error', function(err){
-    console.error(err);
-  });
-}
-
-function initializeMedia(callback) {
-  navigator.getUserMedia(
-    { audio: true, video: true },
-    function(stream) {
-      localStream = stream;
-      var video = document.getElementById('my-video');
-      video.src = URL.createObjectURL(stream);
-      video.play();
-      callback();
-    },
-    function(err) {
-      console.error(err);
-    }
-  );
-}
-
-function callRemoteAll() {
-  peer.listAllPeers(function(remoteIds) {
-    for (var i = 0; i < remoteIds.length; i++ ) {
-      var remoteId = remoteIds[i];
-      var mediaConnection = peer.call(remoteId, localStream);
-      settingMediaConnection(mediaConnection);
-    }
-  });
-}
-
-function settingMediaConnection(mediaConnection) {
-  var remoteId = mediaConnection.peer;
-  var remoteStream = null;
-  var video = null;
-  mediaConnection.on('stream', function(stream) {
-    video = document.createElement('video');
-    video.src = URL.createObjectURL(stream);
-    video.play();
-    var parent = document.getElementById('peer-video');
-    parent.appendChild(video);
-  });
-  mediaConnection.on('close', function(){
-    URL.revokeObjectURL(video.src);
-    video.parentNode.removeChild(video);
-  });
-  mediaConnection.on('error', function(err){
-    console.error(err);
-  });
-}
-
-function initialize() {
-  initializeMedia(function() {
-    initializePeer(function() {
-      callRemoteAll();
-    });
-  });
-}
-
-window.addEventListener('load', initialize);
+ 
+  // サーバとpeerに接続
+  multiparty.start()

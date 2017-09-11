@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://skyway.io/dist/0.3/peer.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://skyway.io/dist/0.3/peer.min.js"></script>
+    <script src="https://skyway.io/dist/multiparty.min.js"></script>
     <script type="text/javascript" src="js/videochat.js"></script>
+    <style> video { width:200px; } </style>
 </head>
 
 <body>
@@ -19,8 +22,8 @@
                 </div>
             <div class="videochat-group">
                 <div class="videochat-room">
-                    <div class="video-box">
-                        <video id="peer-video" style="width: 300px;" autoplay></video>
+                    <div id="peerVideo1" class="video-box">
+<!--                        <video id="peer-video" style="width: 300px;" autoplay></video>-->
                     
                     </div>
                     <div class="user-name">
@@ -29,7 +32,7 @@
                 </div>
                 
                 <div class="videochat-room">
-                    <div class="video-box">
+                    <div id="peerVideo2" class="video-box">
                         
                     </div>
                     <div class="user-name">
@@ -39,8 +42,8 @@
             </div>
             
             <div class="my-videochat-room">
-                <div class="video-box">
-                    <video id="my-video" style="width: 160px;" autoplay></video>
+                <div id="myVideo" class="video-box">
+<!--                    <video id="myVideo" style="width: 160px;" autoplay></video>-->
 
                 </div>
             </div>
