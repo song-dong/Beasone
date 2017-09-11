@@ -29,6 +29,17 @@
     width:90%;
     margin:auto;
 }
+.my-videochat-room{
+    margin:50px;
+    width:180px;
+    height:150px;
+    background: -webkit-linear-gradient(left,#485563, #29434c);
+}
+.user-name{
+    text-align: center;
+    color: white;
+}
+
 .video-toolbar{
     position: absolute;
     bottom: 0;
