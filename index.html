@@ -150,7 +150,7 @@
                 <p class="user-comment">♪</p>
             </div>
             <div class="comment-body" id="comment3">
-                <p class="user-comment">comment comment comment</p></p>
+                <p class="user-comment">comment comment comment</p>
             </div>
             <div class="comment-body" id="comment4">
                 <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 512 512" style="width: 64px; height: 64px; opacity: 1;" xml:space="preserve">
@@ -242,17 +242,17 @@
 
             ///////////////////////////////////////////////////
             // Screen share
-            $("#screenShare").on('click', function() {
-                console.log(multiparty)
-                multiparty.startScreenShare(function(stream) {
-                    $("#myVideo").prop("src", URL.createObjectURL(stream));
-                    // success callback
-                }, function(err) {
-                    // error callback
-                });
+//            $("#screenShare").on('click', function() {
+//                console.log(multiparty)
+//                multiparty.startScreenShare(function(stream) {
+//                    $("#myVideo").prop("src", URL.createObjectURL(stream));
+//                    // success callback
+//                }, function(err) {
+//                    // error callback
+//                });
 
                 //                                    multiparty.stopScreenShare();
-            });
+//            });
 
 
             ///////////////////////////////////////////////////

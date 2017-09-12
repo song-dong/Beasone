@@ -74,7 +74,7 @@ $(document).ready(function () {
                     Height: $('#Height').val(),
                     FrameRate: $('#FrameRate').val()
                 },function (stream){
-                    attachMediaStream_($('#myScreen')[0],stream);
+                    $('#myScreen').prop('src', URL.createObjectURL(stream));
 //                    if(existingCall != null){
 //                        var _peerid = existingCall.peer;
 //                        existingCall.close();
