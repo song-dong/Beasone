@@ -242,17 +242,17 @@
 
             ///////////////////////////////////////////////////
             // Screen share
-//            $("#screenShare").on('click', function() {
-//                console.log(multiparty)
-//                multiparty.startScreenShare(function(stream) {
-//                    $("#myVideo").prop("src", URL.createObjectURL(stream));
-//                    // success callback
-//                }, function(err) {
-//                    // error callback
-//                });
+            $("#screenShare").on('click', function() {
+                console.log(multiparty)
+                multiparty.startScreenShare(function(stream) {
+                    $("#myVideo").prop("src", URL.createObjectURL(stream));
+                    // success callback
+                }, function(err) {
+                    // error callback
+                });
 
                 //                                    multiparty.stopScreenShare();
-//            });
+            });
 
 
             ///////////////////////////////////////////////////
