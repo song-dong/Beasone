@@ -173,7 +173,7 @@
             <form>
                 <input type="text"><button type="submit">send</button>
             </form>
-            <p class="receive"></p>
+            <p id="receive" class="receive"></p>
         </div>
     </div>
 
@@ -187,8 +187,8 @@
             multiparty = new MultiParty({
                 "key": "1061e0f9-3006-4af2-8266-82ce6c34b677" /* SkyWay key */ ,
                 "reliable": true /* Use reliable communication(SCTP) in Data Channel. */ ,
-                //            "room": "groupA",
-                "debck": 3
+                "room": "groupA",
+                "debug": 3
             });
 
 
@@ -216,7 +216,7 @@
             // for DataChannel
             multiparty.on('message', function(mesg) {
                 // peerからテキストメッセージを受信
-                $("p.receive").append(mesg.data + "<br>");
+                $("#receive").append(mesg.data + "<br>");
             });
             ////////////////////////////////
             // Error handling
@@ -225,6 +225,22 @@
             });
 
             multiparty.start();
+             ///////////////////////////////////////////////////
+            // Screen share
+            $("#screenShare").on("click", function(e) {
+                e.preventDefault();
+                multiparty.startScreenShare(function(stream) {
+                    console.log("screen-share success")
+//                    $("#myVideo").prop("src", URL.createObjectURL(stream));
+                    // success callback
+                }, function(err) {
+                    console.log("screen-share failed")
+                    // error callback
+                });
+
+                //                                    multiparty.stopScreenShare();
+            });
+
 
             //////////////////////////////////////////////////////////
             // テキストフォームに入力されたテキストをpeerに送信
@@ -241,21 +257,6 @@
                     $text.val("");
                 }
             });
-
-            ///////////////////////////////////////////////////
-            // Screen share
-            $("#screenShare").on('click', function() {
-                console.log(multiparty)
-                multiparty.startScreenShare(function(stream) {
-                    $("#myVideo").prop("src", URL.createObjectURL(stream));
-                    // success callback
-                }, function(err) {
-                    // error callback
-                });
-
-                //                                    multiparty.stopScreenShare();
-            });
-
 
             ///////////////////////////////////////////////////
             // handle mute/unmute
