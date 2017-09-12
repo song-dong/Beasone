@@ -20,15 +20,18 @@
 }
 .videochat-room{
     border-style: solid;
-    border-width: 13px;
+    border-width: 20px;
     border-color:#2f1f14;
-    width:50%;
+    width:45%;
+    margin:10px;
+    background:url("../img/sea.jpg");
+    background-size: cover;
 }
 .video-box{
     height:80%;
     width:90%;
-
     margin:auto;
+
 }
 .my-videochat-room{
     margin:50px;
