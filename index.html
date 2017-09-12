@@ -1,48 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="css/cafe-style.css">
+=======
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/multiparty.js"></script>
+    <script type="text/javascript" src="https://skyway.io/dist/adapter.js"></script>
+    <script type="text/javascript" src="https://skyway.io/dist/0.3/peer.js"></script>
+    <script type="text/javascript" src="https://skyway.io/dist/screenshare.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <style>
+        .my-video {
+            width: 160px;
+        }
+
+    </style>
+    <style>
+        .peer-video {
+            width: 420px;
+        }
+
+    </style>
+
+>>>>>>> 994ca4fba77f0bb73201081a29527189aeff4871
 </head>
 
 <body>
     <div class="room-wrapper">
         <div class="videochat-wrapper">
+<<<<<<< HEAD
                <div class="videochat-header">
                     <div class="room-url">
                        <p class="room-name">room name</p>
                     </div>
                     <button class="url-copy">Copy link</button>
+=======
+            <div class="videochat-header">
+                <div class="room-url">
+                    <p class="room-name">roomname</p>
+>>>>>>> 994ca4fba77f0bb73201081a29527189aeff4871
                 </div>
+                <button class="url-copy">Copy link</button>
+            </div>
             <div class="videochat-group">
                 <div class="videochat-room">
-                    <div class="video-box">
-                    
+                    <div id="peerVideo1" class="video-box">
+
                     </div>
                     <div class="user-name">
                         user name
                     </div>
                 </div>
-                
+
                 <div class="videochat-room">
-                    <div class="video-box">
-                        
+                    <div id="peerVideo2" class="video-box">
+
                     </div>
                     <div class="user-name">
                         user name
                     </div>
                 </div>
             </div>
-            
+
             <div class="my-videochat-room">
-                <div class="video-box">
-                    
+                <div id="myVideo" class="video-box">
                 </div>
+                <video id="myScreen" muted="true" width="480" height="240" autoplay></video>
+                <p><label>Width : </label><input id="Width" size="5" value="640"></p>
+                <p><label>Height : </label><input id="Height" size="5" value="480"></p>
+                <p><label>FrameRate : </label><input id="FrameRate" size="5" value="1"></p>
             </div>
-            
+
             <div class="video-toolbar">
                 <div class="video-toolbar-group">
+<<<<<<< HEAD
                     <button class="video-button">
                         <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 512 512" style="width: 30px; height: 30px; opacity: 1;" xml:space="preserve">
                             <style type="text/css">
@@ -73,6 +109,12 @@
                         		    c-44.201,0.012-80.117,35.928-80.129,80.129V244.95C175.894,289.139,211.81,325.055,256.011,325.067z" style="fill: rgb(75, 75, 75);"></path>
                             </g>
                         </svg>
+=======
+                    <button id="video-mute" data-muted="false" class="video-button">
+                        <div class="video-toolbar-itemtext">Video</div>
+                    </button>
+                    <button id="audio-mute" data-muted="false" class="mic-button">
+>>>>>>> 994ca4fba77f0bb73201081a29527189aeff4871
                         <div class="video-toolbar-itemtext">Microphone</div>
                     </button>
                     <button class="translation-button">
@@ -95,6 +137,7 @@
                         </svg>
                         <div class="video-toolbar-itemtext">Translation</div>
                     </button>
+<<<<<<< HEAD
                     <button class="share-button">
                         <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="width: 30px; height: 30px; opacity: 1;" xml:space="preserve">
                             <style type="text/css">
@@ -108,13 +151,17 @@
                             		h96.242V419.47z" style="fill: rgb(75, 75, 75);"></path>
                             </g>
                         </svg>
+=======
+                    <button id="screenShare" class="share-button">
+>>>>>>> 994ca4fba77f0bb73201081a29527189aeff4871
                         <div class="video-toolbar-itemtext">ShareScreen</div>
                     </button>
                 </div>
             </div>
         </div>
-        <div class="messages-wrapper">
+        <div id="message" class="messages-wrapper">
             <p>message</p>
+<<<<<<< HEAD
             <!--..imageできるから表示してみる comment✖️2 cafe風にチョークアート...-->
             <!--1人１色でも楽しそうだし直感的に分かりやすそう。-->
             <div class="comment-body" id="comment1">
@@ -142,9 +189,119 @@
                     </g>
                 </svg>
             </div>
+=======
+            <form>
+                <input type="text"><button type="submit">send</button>
+            </form>
+            <p class="receive"></p>
+>>>>>>> 994ca4fba77f0bb73201081a29527189aeff4871
         </div>
     </div>
-   
-    
+
+
+    <script>
+        var multiparty;
+
+        function start() {
+
+            // MultiParty インスタンスを生成
+            multiparty = new MultiParty({
+                "key": "1061e0f9-3006-4af2-8266-82ce6c34b677" /* SkyWay key */ ,
+                "reliable": true /* Use reliable communication(SCTP) in Data Channel. */ ,
+                //            "room": "group A",
+                "debck": 3
+            });
+
+
+            /////////////////////////////////
+            // for MediaStream
+            multiparty.on('my_ms', function(video) {
+                // 自分のvideoを表示
+                var vNode = MultiParty.util.createVideoNode(video);
+                vNode.setAttribute("class", "video my-video");
+                vNode.volume = 0;
+                $(vNode).appendTo("#myVideo");
+            }).on('peer_ms', function(video) {
+                console.log("video received!!")
+                // peerのvideoを表示
+                console.log(video);
+                var vNode = MultiParty.util.createVideoNode(video);
+                vNode.setAttribute("class", "video peer-video");
+                $(vNode).appendTo("#peerVideo1");
+            }).on('ms_close', function(peer_id) {
+                // peerが切れたら、対象のvideoノードを削除する
+                $("#" + peer_id).remove();
+            })
+
+            ////////////////////////////////
+            // for DataChannel
+            multiparty.on('message', function(mesg) {
+                // peerからテキストメッセージを受信
+                $("p.receive").append(mesg.data + "<br>");
+            });
+            ////////////////////////////////
+            // Error handling
+            multiparty.on('error', function(err) {
+                alert(err);
+            });
+
+            multiparty.start();
+
+            //////////////////////////////////////////////////////////
+            // テキストフォームに入力されたテキストをpeerに送信
+            $("#message form").on("submit", function(ev) {
+                ev.preventDefault(); // onsubmitのデフォルト動作（reload）を抑制
+                // テキストデータ取得
+                var $text = $(this).find("input[type=text]");
+                var data = $text.val();
+                if (data.length > 0) {
+                    data = data.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+                    $("p.receive").append(data + "<br>");
+                    // メッセージを接続中のpeerに送信する
+                    multiparty.send(data);
+                    $text.val("");
+                }
+            });
+
+            ///////////////////////////////////////////////////
+            // Screen share
+            $("#screenShare").on('click', function() {
+                console.log(multiparty)
+                multiparty.startScreenShare(function(stream) {
+                    $("#myVideo").prop("src", URL.createObjectURL(stream));
+                    // success callback
+                }, function(err) {
+                    // error callback
+                });
+
+                //                                    multiparty.stopScreenShare();
+            });
+
+
+            ///////////////////////////////////////////////////
+            // handle mute/unmute
+            $("#video-mute").on("click", function(ev) {
+                var mute = !$(this).data("muted");
+                multiparty.mute({
+                    video: mute
+                });
+                $(this).text("video " + (mute ? "unmute" : "mute")).data("muted", mute);
+            });
+            $("#audio-mute").on("click", function(ev) {
+                var mute = !$(this).data("muted");
+                multiparty.mute({
+                    audio: mute
+                });
+                $(this).text("audio " + (mute ? "unmute" : "mute")).data("muted", mute);
+            });
+
+        }
+
+        start();
+
+    </script>
+
+
 </body>
+
 </html>
