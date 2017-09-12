@@ -1,14 +1,13 @@
 .room-wrapper{
     display: flex;
     height: 700px;
-    background: -webkit-linear-gradient(left,#2980b9, #2c3e50);
 }
 .videochat-wrapper{
-
     position: relative;
     margin-right: auto;
     border-style: solid;
     width:80%;
+    background: -webkit-linear-gradient(left,#59300d, #b1601b);   
 }
 .videochat-header{
     display:flex;
@@ -21,7 +20,6 @@
 }
 .videochat-room{
     width:50%;
-    background: -webkit-linear-gradient(left,#485563, #29434c);
 }
 .video-box{
     border-style:solid;
@@ -33,7 +31,7 @@
     margin:50px;
     width:180px;
     height:150px;
-    background: -webkit-linear-gradient(left,#485563, #29434c);
+
 }
 .user-name{
     text-align: center;
@@ -50,15 +48,43 @@
     justify-content: center;
 }
 .video-toolbar-itemtext{
-    bottom: 0;   
+    bottom: 0;
+    color:white;
 }
-.messages-wrapper{
-    border-style: solid;
-    width:20%;
+
+.share-button{
+    background-color: #e36a27;
+    color:white;
 }
 button{
     opacity: 0.8;
     color:white;
     height:50px;
     width:100px;    
+}
+.messages-wrapper{
+    border-style: solid;
+    width:20%;
+    background-color:#2e2e2e;
+}
+.comment-body{
+    margin:10px ;
+}
+
+#comment1{
+    border-radius:100px 20px 20px 70px / 20px 60px 70px 40px;
+   	border: 2px solid white ;
+}
+#comment2{
+    color:pink;
+    border-radius:50px 20px 50px 10px / 40px 60px 40px 10px;
+   	border: 2px solid pink ;    
+}
+#comment3{
+    color:white;
+    border-radius:20px 40px 70px 30px / 80px 20px 20px 70px;
+   	border: 2px solid white ;    
+}
+.user-comment{
+    color:white;
 }
