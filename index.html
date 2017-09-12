@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="js/multiparty.js"></script>
+    <script type="text/javascript" src="https://skyway.io/dist/adapter.js"></script>
+    <script type="text/javascript" src="https://skyway.io/dist/0.3/peer.js"></script>
+    <script type="text/javascript" src="https://skyway.io/dist/screenshare.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
     <style>
         .my-video {
             width: 160px;
@@ -53,8 +57,11 @@
 
             <div class="my-videochat-room">
                 <div id="myVideo" class="video-box">
-
                 </div>
+                <video id="myScreen" muted="true" width="480" height="240" autoplay></video>
+                <p><label>Width : </label><input id="Width" size="5" value="640"></p>
+                <p><label>Height : </label><input id="Height" size="5" value="480"></p>
+                <p><label>FrameRate : </label><input id="FrameRate" size="5" value="1"></p>
             </div>
 
             <div class="video-toolbar">
@@ -68,7 +75,7 @@
                     <button class="translation-button">
                         <div class="video-toolbar-itemtext">Translation</div>
                     </button>
-                    <button class="share-button">
+                    <button id="screenShare" class="share-button">
                         <div class="video-toolbar-itemtext">ShareScreen</div>
                     </button>
                 </div>
@@ -83,7 +90,7 @@
         </div>
     </div>
 
-    
+
     <script>
         var multiparty;
 
@@ -91,12 +98,10 @@
 
             // MultiParty インスタンスを生成
             multiparty = new MultiParty({
-                "key": "1061e0f9-3006-4af2-8266-82ce6c34b677",
-                /* SkyWay keyを指定 */
-                "room": 'groupA',
-                /* groupAの人としか繋がらない */
-                "reliable": true,
-                "debug": 3
+                "key": "1061e0f9-3006-4af2-8266-82ce6c34b677" /* SkyWay key */ ,
+                "reliable": true /* Use reliable communication(SCTP) in Data Channel. */ ,
+                //            "room": "group A",
+                "debck": 3
             });
 
 
@@ -148,6 +153,20 @@
                     multiparty.send(data);
                     $text.val("");
                 }
+            });
+
+            ///////////////////////////////////////////////////
+            // Screen share
+            $("#screenShare").on('click', function() {
+                console.log(multiparty)
+                multiparty.startScreenShare(function(stream) {
+                    $("#myVideo").prop("src", URL.createObjectURL(stream));
+                    // success callback
+                }, function(err) {
+                    // error callback
+                });
+
+                //                                    multiparty.stopScreenShare();
             });
 
 
