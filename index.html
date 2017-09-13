@@ -62,9 +62,6 @@
                 <div id="myVideo" class="video-box">
                 </div>
                 <video id="myScreen" muted="true" width="480" height="240" autoplay></video>
-                <p><label>Width : </label><input id="Width" size="5" value="640"></p>
-                <p><label>Height : </label><input id="Height" size="5" value="480"></p>
-                <p><label>FrameRate : </label><input id="FrameRate" size="5" value="1"></p>
             </div>
 
             <div class="video-toolbar">
@@ -230,9 +227,11 @@
             $("#screenShare").on("click", function(e) {
                 e.preventDefault();
                 multiparty.startScreenShare(function(stream) {
-                    console.log("screen-share success")
-//                    $("#myVideo").prop("src", URL.createObjectURL(stream));
-                    // success callback
+//                    console.log("screen-share success")
+                    attachMediaStream_($('video.my-video')[0],stream);
+                    localStream = stream;
+//                    $("#myScreen").prop("src", URL.createObjectURL(stream));
+                     //success callback
                 }, function(err) {
                     console.log("screen-share failed")
                     // error callback
