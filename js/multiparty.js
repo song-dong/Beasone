@@ -2180,7 +2180,7 @@ var MultiParty = function (_EventEmitter) {
             }, function (stream) {
               self.screenStream = stream;
               self.startCall_(true);
-              util.log("MediaConnection created in OFFER");
+//              util.log("MediaConnection created in OFFER");
 
               //callback use video
               success(stream);

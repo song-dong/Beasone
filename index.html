@@ -7,12 +7,10 @@
     <link rel="stylesheet" href="css/cafe-style.css">
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="js/multiparty.js"></script>
-<!--
     <script type="text/javascript" src="https://skyway.io/dist/adapter.js"></script>
-    <script type="text/javascript" src="https://skyway.io/dist/0.3/peer.js"></script>
--->
+    <!--    <script type="text/javascript" src="https://skyway.io/dist/0.3/peer.js"></script>-->
     <script type="text/javascript" src="https://skyway.io/dist/screenshare.js"></script>
-<!--    <script type="text/javascript" src="js/app.js"></script>-->
+    <!--    <script type="text/javascript" src="js/app.js"></script>-->
     <style>
         .my-video {
             width: 160px;
@@ -25,6 +23,13 @@
         }
 
     </style>
+    <style>
+        .peer-screen {
+            width: 420px;
+        }
+
+    </style>
+
 
 </head>
 
@@ -222,19 +227,25 @@
             });
 
             multiparty.start();
-             ///////////////////////////////////////////////////
+            ///////////////////////////////////////////////////
             // Screen share
             $("#screenShare").on("click", function(e) {
                 e.preventDefault();
                 multiparty.startScreenShare(function(stream) {
-//                    console.log("screen-share success")
-                    attachMediaStream_($('video.my-video')[0],stream);
-                    localStream = stream;
-//                    $("#myScreen").prop("src", URL.createObjectURL(stream));
-                     //success callback
-                }, function(err) {
-                    console.log("screen-share failed")
+                    console.log("hoge")
+                    attachMediaStream($('video.my-video')[0], stream);
+                    //                    localStream = stream;
+                    //                    $("#myScreen").prop("src", URL.createObjectURL(stream));
+
+//                }, function(err) {
+//                    console.log(err)
+//                    console.log("screen-share failed")
                     // error callback
+                }).on('peer_ss', function(video) {
+                    // peerのvideoを表示
+                    var vNode = MultiParty.util.createVideoNode(video);
+                    vNode.setAttribute("class", "video peer-video");
+                    $(vNode).appendTo("#peerVideo1");
                 });
 
                 //                                    multiparty.stopScreenShare();
