@@ -17,6 +17,8 @@
 
     display:flex;
     height:400px;
+    background:url("../img/sea.jpg");
+    background-size: cover;
 }
 .videochat-room{
     border-style: solid;
@@ -24,8 +26,7 @@
     border-color:#2f1f14;
     width:45%;
     margin:10px;
-    background:url("../img/sea.jpg");
-    background-size: cover;
+
 }
 .video-box{
     height:80%;
@@ -56,6 +57,10 @@
 .video-toolbar-itemtext{
     bottom: 0;
     color:white;
+}
+
+.mic-button{
+    background:url("../img/mic.svg");
 }
 
 .share-button{
