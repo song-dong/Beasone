@@ -8,7 +8,7 @@
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="js/multiparty.js"></script>
     <script type="text/javascript" src="https://skyway.io/dist/adapter.js"></script>
-    <!--    <script type="text/javascript" src="https://skyway.io/dist/0.3/peer.js"></script>-->
+<!--    <script type="text/javascript" src="https://skyway.io/dist/0.3/peer.js"></script>-->
     <script type="text/javascript" src="https://skyway.io/dist/screenshare.js"></script>
     <!--    <script type="text/javascript" src="js/app.js"></script>-->
     <style>
@@ -234,18 +234,20 @@
                 multiparty.startScreenShare(function(stream) {
                     console.log("hoge")
                     attachMediaStream($('video.my-video')[0], stream);
-                    //                    localStream = stream;
-                    //                    $("#myScreen").prop("src", URL.createObjectURL(stream));
-
-//                }, function(err) {
-//                    console.log(err)
-//                    console.log("screen-share failed")
+//                    localStream = stream;
+//                    $("#myScreen").prop("src", URL.createObjectURL(stream));
+                    
+                }, function(err) {
+                    console.log(err)
+                    console.log("screen-share failed")
                     // error callback
-                }).on('peer_ss', function(video) {
-                    // peerのvideoを表示
-                    var vNode = MultiParty.util.createVideoNode(video);
-                    vNode.setAttribute("class", "video peer-video");
-                    $(vNode).appendTo("#peerVideo1");
+                });
+                
+                multiparty.on('peer_ss', function(video) {
+                        // peerのvideoを表示
+                        var vNode = MultiParty.util.createVideoNode(video);
+                        vNode.setAttribute("class", "video peer-video");
+                        $(vNode).appendTo("#peerVideo1");
                 });
 
                 //                                    multiparty.stopScreenShare();
