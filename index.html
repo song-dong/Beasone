@@ -243,14 +243,16 @@
                     // error callback
                 });
                 
-                multiparty.on('peer_ss', function(video) {
-                        // peerのvideoを表示
-                        var vNode = MultiParty.util.createVideoNode(video);
-                        vNode.setAttribute("class", "video peer-video");
-                        $(vNode).appendTo("#peerVideo1");
-                });
+                
 
                 //                                    multiparty.stopScreenShare();
+            });
+            
+            multiparty.on('peer_ss', function(video) {
+                    // peerのvideoを表示
+                    var vNode = MultiParty.util.createVideoNode(video);
+                    vNode.setAttribute("class", "video peer-video");
+                    $(vNode).appendTo("#peerVideo1");
             });
 
 
