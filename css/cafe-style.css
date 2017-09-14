@@ -28,10 +28,24 @@
     margin:10px;
 
 }
+
+.my-video {
+    width: 160px;
+}
+
+.peer-video {
+    width: 420px;
+}
+
+.peer-screen {
+    width: 420px;
+}
+
 .video-box{
     height:80%;
     width:90%;
     margin:auto;
+    border-style: solid;
 
 }
 .my-videochat-room{
@@ -85,17 +99,24 @@ button{
 #comment1{
     border-radius:100px 20px 20px 70px / 20px 60px 70px 40px;
    	border: 1px solid white ;
+   	font-size: 9px;
 }
 #comment2{
     color:pink;
     border-radius:50px 20px 50px 10px / 40px 60px 40px 10px;
-   	border: 1px solid pink ;    
+   	border: 1px solid pink ; 
+    font-size: 9px;
 }
 #comment3{
     color:white;
     border-radius:20px 40px 70px 30px / 80px 20px 20px 70px;
-   	border: 1px solid white ;    
+   	border: 1px solid white ;   
+   	font-size: 9px;
 }
 .user-comment{
     color:white;
+}
+
+#message-form{
+    bottom: 0px;
 }

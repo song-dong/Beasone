@@ -9,24 +9,7 @@
     <script type="text/javascript" src="js/multiparty.js"></script>
     <script type="text/javascript" src="https://skyway.io/dist/adapter.js"></script>
     <script type="text/javascript" src="https://skyway.io/dist/screenshare.js"></script>
-    <style>
-        .my-video {
-            width: 160px;
-        }
 
-    </style>
-    <style>
-        .peer-video {
-            width: 420px;
-        }
-
-    </style>
-    <style>
-        .peer-screen {
-            width: 420px;
-        }
-
-    </style>
 
 
 </head>
@@ -92,27 +75,24 @@
         </div>
         <div id="message" class="messages-wrapper">
             <p>message</p>
-            <!--..imageできるから表示してみる comment✖️2 cafe風にチョークアート...-->
+           <!--cafe風チョークアート-->
             <!--1人１色でも楽しそうだし直感的に分かりやすそう。-->
-            <div class="comment-body" id="comment1">
-                <p class="user-comment">Hallo!!! test test test!!!</p>
-            </div>
-            <div class="comment-body" id="comment2">
-                <p class="user-comment">♪</p>
-            </div>
-            <div class="comment-body" id="comment3">
-                <p class="user-comment">comment comment comment</p>
-            </div>
-            <div class="comment-body" id="comment4">
+            <!--<div class="comment-body" id="comment1">-->
+            <!--    <p class="user-comment">Hallo!!! test test test!!!</p>-->
+            <!--</div>-->
+            <!--<div class="comment-body" id="comment2">-->
+            <!--    <p class="user-comment">♪</p>-->
+            <!--</div>-->
+            <!--<div class="comment-body" id="comment3">-->
+            <!--    <p class="user-comment">comment comment comment</p>-->
+            <!--</div>-->
 
-            </div>
-            <form>
+            <form id="message-form">
                 <input type="text"><button type="submit">send</button>
             </form>
             <p id="receive" class="receive"></p>
         </div>
     </div>
-
 
     <script type="text/javascript" src="js/skyway.js"></script>
 

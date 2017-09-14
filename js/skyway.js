@@ -14,6 +14,7 @@
            /////////////////////////////////
            // for MediaStream
            multiparty.on('my_ms', function (video) {
+
                // 自分のvideoを表示
                var vNode = MultiParty.util.createVideoNode(video);
                vNode.setAttribute("class", "video my-video");
@@ -25,7 +26,14 @@
                console.log(video);
                var vNode = MultiParty.util.createVideoNode(video);
                vNode.setAttribute("class", "video peer-video");
-               $(vNode).appendTo("#peerVideo1");
+               alert(peer_id);
+               i = 1
+            //   if(){
+            //         i=1
+            //   } else{
+            //         i=2
+            //   };
+               $(vNode).appendTo("#peerVideo"+i);
            }).on('ms_close', function (peer_id) {
                // peerが切れたら、対象のvideoノードを削除する
                $("#" + peer_id).remove();
@@ -99,6 +107,7 @@
                });
                $(this).text("video " + (mute ? "unmute" : "mute")).data("muted", mute);
            });
+           
            $("#audio-mute").on("click", function (ev) {
                var mute = !$(this).data("muted");
                multiparty.mute({
