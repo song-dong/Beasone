@@ -26,14 +26,8 @@
                console.log(video);
                var vNode = MultiParty.util.createVideoNode(video);
                vNode.setAttribute("class", "video peer-video");
-               alert(peer_id);
-               i = 1
-            //   if(){
-            //         i=1
-            //   } else{
-            //         i=2
-            //   };
-               $(vNode).appendTo("#peerVideo"+i);
+ 
+               $(vNode).appendTo("#peerVideo1");
            }).on('ms_close', function (peer_id) {
                // peerが切れたら、対象のvideoノードを削除する
                $("#" + peer_id).remove();
