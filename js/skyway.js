@@ -26,7 +26,7 @@
                console.log(video);
                var vNode = MultiParty.util.createVideoNode(video);
                vNode.setAttribute("class", "video peer-video");
- 
+
                $(vNode).appendTo("#peerVideo1");
            }).on('ms_close', function (peer_id) {
                // peerが切れたら、対象のvideoノードを削除する
@@ -57,8 +57,6 @@
                } else {
                    multiparty.startScreenShare(function (stream) {
                        attachMediaStream($('video.my-video')[0], stream);
-                       //                    localStream = stream;
-                       //                    $("#myScreen").prop("src", URL.createObjectURL(stream));
                        isScreenShareOn = true
                    }, function (err) {
                        console.log(err)
@@ -101,7 +99,7 @@
                });
                $(this).text("video " + (mute ? "unmute" : "mute")).data("muted", mute);
            });
-           
+
            $("#audio-mute").on("click", function (ev) {
                var mute = !$(this).data("muted");
                multiparty.mute({
