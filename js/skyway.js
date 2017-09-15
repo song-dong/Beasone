@@ -9,7 +9,8 @@
                "room": "groupA",
                "debug": 3
            });
-
+//testtesttest
+var existingCalls = {};
 
            /////////////////////////////////
            // for MediaStream
