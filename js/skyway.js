@@ -32,7 +32,18 @@
                // peerが切れたら、対象のvideoノードを削除する
                $("#" + peer_id).remove();
            })
-
+           
+           //テストだめなら消す
+    window.existingCalls[call.peer] = call;
+    call.on('close', function() {
+        window.existingCalls[call.peer].close();
+        delete window.existingCalls[call.peer];
+        streamCount();
+        $('#' + call.peer).remove();
+    });
+    streamCount();
+    //ここまでテスト
+    
            ////////////////////////////////
            // for DataChannel
            multiparty.on('message', function (mesg) {
@@ -74,6 +85,19 @@
                vNode.setAttribute("class", "video peer-video");
                $(vNode).appendTo("#peerVideo1");
            });
+           
+           //ここもテスト。だめなら削除
+           function streamCount () {
+                var count = Object.keys(existingCalls).length;
+                var $html = $('html');
+                var classList = $html[0].classList;
+                if (classList !== -1) {
+                    for (var i = 0; i < classList.length; i++) {
+                        if (classList.item(i).match(/^stream/)) {
+                            $html.removeClass(classList.item(i));
+                        }
+                    }
+                }
 
 
            //////////////////////////////////////////////////////////
