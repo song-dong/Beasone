@@ -1,3 +1,9 @@
+.logo-group{
+    height: 30px;
+    width: 100%;
+    background: white;  
+}
+
 .room-wrapper{
     display: flex;
     height: 680px;
@@ -11,14 +17,14 @@
 }
 .videochat-header{
     display:flex;
-    height:40px;
+    height:100px;
 }
 .videochat-group{
-
     display:flex;
     height:400px;
     background:url("../img/sea.jpg");
     background-size: cover;
+
 }
 .videochat-room{
     border-style: solid;
@@ -62,19 +68,19 @@
 .video-toolbar{
     position: absolute;
     bottom: 0;
+
     width:100%;
 }
 .video-toolbar-group{
     display: flex;
     justify-content: center;
+    width:500px;
+    background-color: #2e2e2e;
+    margin:auto;
 }
 .video-toolbar-itemtext{
     bottom: 0;
     color:white;
-}
-
-.mic-button{
-    background:url("../img/mic.svg");
 }
 
 .share-button{
@@ -82,11 +88,17 @@
     color:white;
 }
 button{
-    opacity: 0.8;
-    color:white;
-    height:50px;
-    width:100px;    
+    height:60px;
+    width:100px; 
+    background:none;
+    border:0;
+    background-color: #2e2e2e;
 }
+
+button:hover{
+    background-color:#808080;
+}
+
 .messages-wrapper{
     border-style: solid;
     width:20%;
