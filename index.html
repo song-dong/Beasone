@@ -14,20 +14,24 @@
 
 </head>
 
+
 <body>
+<div class="wrapper">
+<header>
+     <!--<div class="logo-group">-->
+        <img src="img/beasone-img.png" height="30">
+        <img src="img/beasone-logo.png" height="30">
+    <!--</div>-->
+    <div class="room-url">
+        <!--<p class="room-name">room name</p>-->
+    </div>   
+</header>
     <div class="room-wrapper">
         <div class="videochat-wrapper">
 
-            <div class="videochat-header">
-                <div class="logo-group">
-                    <img src="img/beasone-img.png" height="30">
-                    <img src="img/beasone-logo.png" height="30">
-                </div>
-                <div class="room-url">
-                    <!--<p class="room-name">room name</p>-->
-                </div>
-                <!--<button class="url-copy">Copy link</button>-->
-            </div>
+        <div class="videochat-header">
+            <button class="url-copy">Copy link</button>
+        </div>
             <div class="videochat-group">
                 <div class="videochat-room">
                     <div id="peerVideo1" class="video-box">
@@ -51,9 +55,9 @@
             <div class="my-videochat-room">
                 <div id="myVideo" class="video-box">
                 </div>
-                <video id="myScreen" muted="true" width="480" height="240" autoplay></video>
+                <!--<video id="myScreen" muted="true" width="480" height="240" autoplay></video>-->
             </div>
-
+            
             <div class="video-toolbar">
                 <div class="video-toolbar-group">
                     <button id="video-mute" data-muted="false" class="video-button">
@@ -78,31 +82,26 @@
                     </button>
                 </div>
             </div>
+            
         </div>
 
         <div id="message" class="messages-wrapper">
+            <div class="messages-header">
+                    <button id="chat-close-button">×</button>
+                    <!--<img src="img/chat-close.png" id="chat-close-img">-->
+            </div>
             <p>message</p>
-            <!--cafe風チョークアート-->
-            <!--1人１色でも楽しそうだし直感的に分かりやすそう。-->
-            <!--<div class="comment-body" id="comment1">-->
-            <!--    <p class="user-comment">Hallo!!! test test test!!!</p>-->
-            <!--</div>-->
-            <!--<div class="comment-body" id="comment2">-->
-            <!--    <p class="user-comment">♪</p>-->
-            <!--</div>-->
-            <!--<div class="comment-body" id="comment3">-->
-            <!--    <p class="user-comment">comment comment comment</p>-->
-            <!--</div>-->
 
             <form id="message-form">
-                <input type="text"><button type="submit">send</button>
+                <input type="text" class="message-text">
+                <!--<button type="submit">send</button>-->
             </form>
             <p id="receive" class="receive"></p>
         </div>
     </div>
 
     <script type="text/javascript" src="js/skyway.js"></script>
-
+</div>
 </body>
 
 </html>

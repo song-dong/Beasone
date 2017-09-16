@@ -1,3 +1,15 @@
+html, body{
+    height: 100%;
+}
+    
+header{
+    display:flex;
+    height:30px;
+}
+
+.wrapper{
+    height:100%;
+}
 .logo-group{
     height: 30px;
     width: 100%;
@@ -6,26 +18,34 @@
 
 .room-wrapper{
     display: flex;
-    height: 680px;
+    background: -webkit-linear-gradient(left,#5c3e2d, #79492d); 
+    height:100vh;
+    width:100%;
+    /*height: 680px;*/
 }
 .videochat-wrapper{
     position: relative;
     margin-right: auto;
-    border-style: solid;
-    width:80%;
-    background: -webkit-linear-gradient(left,#5c3e2d, #79492d);   
+    /*border-style: solid;*/
+    height:80%;
+    width:79%;
+    top:60px;
 }
-.videochat-header{
-    display:flex;
-    height:100px;
-}
+
+
 .videochat-group{
     display:flex;
-    height:400px;
+    height:60%;
     background:url("../img/sea.jpg");
     background-size: cover;
-
 }
+
+@media screen and (max-width: 1100px) {
+  .videochat-group {
+    flex-direction: column;
+  }
+}
+
 .videochat-room{
     border-style: solid;
     border-width: 20px;
@@ -58,7 +78,8 @@
     margin:50px;
     width:180px;
     height:150px;
-
+    position: absolute;
+    bottom:10px;
 }
 .user-name{
     text-align: center;
@@ -67,8 +88,7 @@
 
 .video-toolbar{
     position: absolute;
-    bottom: 0;
-
+    bottom: 0px;
     width:100%;
 }
 .video-toolbar-group{
@@ -77,15 +97,21 @@
     width:500px;
     background-color: #2e2e2e;
     margin:auto;
+    border-radius: 5px;
 }
 .video-toolbar-itemtext{
     bottom: 0;
     color:white;
 }
 
+.video-button{
+    border-radius: 5px 0px 0px 5px;   
+}
+
 .share-button{
     background-color: #e36a27;
     color:white;
+    border-radius: 0px 5px 5px 0px; 
 }
 button{
     height:60px;
@@ -93,42 +119,64 @@ button{
     background:none;
     border:0;
     background-color: #2e2e2e;
+
 }
 
 button:hover{
     background-color:#808080;
 }
 
-.messages-wrapper{
-    border-style: solid;
-    width:20%;
-    background-color:#2e2e2e;
-}
-.comment-body{
-    margin:10px ;
+.messages-header{
+    width: 100%;
+    text-align: right;
 }
 
-#comment1{
-    border-radius:100px 20px 20px 70px / 20px 60px 70px 40px;
-   	border: 1px solid white ;
-   	font-size: 9px;
+#chat-close-img{
+    margin-left: auto;
 }
-#comment2{
-    color:pink;
-    border-radius:50px 20px 50px 10px / 40px 60px 40px 10px;
-   	border: 1px solid pink ; 
-    font-size: 9px;
+
+#chat-close-button{
+	width: 35px;
+	height: 35px;
+	background: #5c3e2d;
+	border-radius: 70px;
+	-moz-border-radius: 70px;
+	-webkit-border-radius: 70px;
+	color: white;
+	display: block;
+	text-align: center;
+	font-size: 200%;
+
+    margin-left: auto;
+    line-height: 19px;
 }
-#comment3{
-    color:white;
-    border-radius:20px 40px 70px 30px / 80px 20px 20px 70px;
-   	border: 1px solid white ;   
-   	font-size: 9px;
+
+.messages-wrapper{
+    height: 85%;
+    width:20%;
+    background-color:#2e2e2e;
+    border-radius: 5px;
+    position:absolute;
+    bottom:0px;
+    right:12px;
 }
-.user-comment{
-    color:white;
+
+.comment-body{
+    margin: 10px;
 }
 
 #message-form{
+    position:absolute;
     bottom: 0px;
+    width: 100%;
+}
+
+.message-text{
+    height: 30px;
+    width: 100%;
+}
+
+#receive{
+    color:white;
+    font-size: 9px;
 }
