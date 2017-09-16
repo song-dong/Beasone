@@ -9,8 +9,8 @@
                "room": "groupA",
                "debug": 3
            });
-//
-// var existingCalls = {};
+           //
+           // var existingCalls = {};
 
            /////////////////////////////////
            // for MediaStream
@@ -18,7 +18,7 @@
 
                // 自分のvideoを表示
                var vNode = MultiParty.util.createVideoNode(video);
-               vNode.setAttribute("class", "video my-video");
+               vNode.setAttribute("class", "my-video");
                vNode.volume = 0;
                $(vNode).appendTo("#myVideo");
            }).on('peer_ms', function (video) {
@@ -26,25 +26,17 @@
                // peerのvideoを表示
                console.log(video);
                var vNode = MultiParty.util.createVideoNode(video);
-               vNode.setAttribute("class", "video peer-video");
-
-               $(vNode).appendTo("#peerVideo1");
+               vNode.setAttribute("class", "peer-video");
+               // 各peerを指定の画面に配置
+               var v = $('video').length;
+               for (var i = 0; i < v; i++) {
+                   $(vNode).appendTo("#peerVideo" + (i + 1));
+               }
            }).on('ms_close', function (peer_id) {
                // peerが切れたら、対象のvideoノードを削除する
                $("#" + peer_id).remove();
            })
-           
-           //テストだめなら消す
-    // window.existingCalls[call.peer] = call;
-    // call.on('close', function() {
-    //     window.existingCalls[call.peer].close();
-    //     delete window.existingCalls[call.peer];
-    //     streamCount();
-    //     $('#' + call.peer).remove();
-    // });
-    // streamCount();
-    //ここまでテスト
-    
+
            ////////////////////////////////
            // for DataChannel
            multiparty.on('message', function (mesg) {
@@ -81,23 +73,12 @@
            multiparty.on('peer_ss', function (video) {
                // peerのvideoを表示
                var vNode = MultiParty.util.createVideoNode(video);
-               vNode.setAttribute("class", "video peer-video");
-               $(vNode).appendTo("#peerVideo1");
+               vNode.setAttribute("class", "peer-video");
+               var v = $('video').length;
+               for (var i = 0; i < v; i++) {
+                   $(vNode).appendTo("#peerVideo" + i);
+               }
            });
-           
-           //ここもテスト。だめなら削除
-        //   function streamCount () {
-        //         var count = Object.keys(existingCalls).length;
-        //         var $html = $('html');
-        //         var classList = $html[0].classList;
-        //         if (classList !== -1) {
-        //             for (var i = 0; i < classList.length; i++) {
-        //                 if (classList.item(i).match(/^stream/)) {
-        //                     $html.removeClass(classList.item(i));
-        //                 }
-        //             }
-        //         }
-
 
            //////////////////////////////////////////////////////////
            // テキストフォームに入力されたテキストをpeerに送信
