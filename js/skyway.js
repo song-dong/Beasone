@@ -45,8 +45,8 @@
                 //  }else{
                 //      alert("他の人");
                 //  };
-                var t = mesg.text
-                var n = mesg.name
+                var t = mesg.text();
+                var n = mesg.name();
                alert(n);
                // peerからテキストメッセージを受信
                $("#receive").append(t + "<br>");
