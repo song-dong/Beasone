@@ -24,18 +24,17 @@ header{
     /*height: 680px;*/
 }
 .videochat-wrapper{
-    position: relative;
+    position: absolute;
     margin-right: auto;
-    /*border-style: solid;*/
     height:80%;
     width:79%;
-    top:60px;
+    bottom:0;
 }
 
 
 .videochat-group{
     display:flex;
-    height:60%;
+    height:70%;
     background:url("../img/sea.jpg");
     background-size: cover;
 }
@@ -146,7 +145,6 @@ button:hover{
 	display: block;
 	text-align: center;
 	font-size: 200%;
-
     margin-left: auto;
     line-height: 19px;
 }
@@ -172,7 +170,7 @@ button:hover{
 }
 
 .message-text{
-    height: 30px;
+    height: 40px;
     width: 100%;
 }
 

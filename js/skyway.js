@@ -39,7 +39,14 @@
 
            ////////////////////////////////
            // for DataChannel
-           multiparty.on('message', function (mesg) {
+           multiparty.on('message', function (mesg,username) {
+                 if (uesrname == $("#myName").val()){
+                   alert(username);  
+                 }else{
+                     alert("他の人");
+                 }
+               
+               
                // peerからテキストメッセージを受信
                $("#receive").append(mesg.data + "<br>");
            });
@@ -87,12 +94,14 @@
                // テキストデータ取得
                var $text = $(this).find("input[type=text]");
                var data = $text.val();
+               var myname = $("#myName").val();//自分の名前を取得
                if (data.length > 0) {
                    data = data.replace(/</g, "&lt;").replace(/>/g, "&gt;");
                    $("#receive").append(data + "<br>");
                    // メッセージを接続中のpeerに送信する
-                   multiparty.send(data);
+                   multiparty.send(data,myname);
                    $text.val("");
+                   $("#myName").val("");
                }
            });
 
