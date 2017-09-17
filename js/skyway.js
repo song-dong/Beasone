@@ -46,10 +46,10 @@
                 //      alert("他の人");
                 //  };
                 console.log(mesg);
-                // var v = mesg.val();
-               // alert(v.name);
+                let v = mesg.data;
+                alert(v.name);
                // peerからテキストメッセージを受信
-               $("#receive").append(v.tex + "<br>");
+               $("#receive").append(v.text + "<br>");
            });
            ////////////////////////////////
            // Error handling
