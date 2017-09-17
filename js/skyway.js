@@ -39,17 +39,13 @@
 
            ////////////////////////////////
            // for DataChannel
-           multiparty.on('message', function (mesg) {
-                //  if (username == $(".myName").val()){
-                //   alert(username);  
-                //  }else{
-                //      alert("他の人");
-                //  };
-                console.log(mesg);
-                let v = mesg.data;
-                alert(v.name);
+              multiparty.on('message', function (mesg) {
+              let v = mesg.data;
+              var messageElement = "<il><p class='sender_name'>" 
+              + v.username + "</p><p class='left_balloon'>" + v.text 
+              + "</p><p class='clear_balloon'></p></il>";
                // peerからテキストメッセージを受信
-               $("#receive").append(v.text + "<br>");
+               $("#receive").append(messageElement + "<br>");
            });
            ////////////////////////////////
            // Error handling
