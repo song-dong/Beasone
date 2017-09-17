@@ -45,10 +45,11 @@
                 //  }else{
                 //      alert("他の人");
                 //  };
-                var v = mesg.val();
-               alert(v.name);
+                console.log(mesg);
+                // var v = mesg.val();
+               // alert(v.name);
                // peerからテキストメッセージを受信
-               $("#receive").append(v.text + "<br>");
+               $("#receive").append(v.tex + "<br>");
            });
            ////////////////////////////////
            // Error handling
@@ -129,7 +130,12 @@
                    audio: mute
                });
                $(this).text("audio " + (mute ? "unmute" : "mute")).data("muted", mute);
-                // $(this).backgroundImage :url(..img/mute.png)
+               if ($(this).text="audiounmute"){
+                 alert("mute");
+                }else{
+                 alert("unmute");
+                };
+               //}.backgroundImage :url(..img/mute.png)
                
                
            });
