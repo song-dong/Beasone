@@ -40,7 +40,7 @@
            ////////////////////////////////
            // for DataChannel
            multiparty.on('message', function (mesg,username) {
-                 if (username == $("#myName").val()){
+                 if (username == $(".myName").val()){
                    alert(username);  
                  }else{
                      alert("他の人");
@@ -101,7 +101,7 @@
                    // メッセージを接続中のpeerに送信する
                    multiparty.send(data,myname);
                    $text.val("");
-                   $("#myName").val("");
+                //   $("#myName").val("");
                }
            });
 
