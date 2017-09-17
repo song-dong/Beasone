@@ -40,12 +40,12 @@
            ////////////////////////////////
            // for DataChannel
            multiparty.on('message', function (mesg,username) {
-                 if (username == $(".myName").val()){
-                   alert(username);  
-                 }else{
-                     alert("他の人");
-                 };
-               
+                //  if (username == $(".myName").val()){
+                //   alert(username);  
+                //  }else{
+                //      alert("他の人");
+                //  };
+               alert(username);
                
                // peerからテキストメッセージを受信
                $("#receive").append(mesg.data + "<br>");
@@ -99,16 +99,14 @@
                    data = data.replace(/</g, "&lt;").replace(/>/g, "&gt;");
                 //   $("#receive").append(data + "<br>");
                 
-                   //ソンドンさんのチャット
-                var messageElement = $("<il><p class='sender_name me'>" 
+                 //必ず自分のため右のバルーン
+                var messageElement = "<il><p class='sender_name me'>" 
                 + myname + "</p><p class='right_balloon'>" + data 
-                + "</p><p class='clear_balloon'></p></il>");
-                　//ここまで
+                + "</p><p class='clear_balloon'></p></il>";
                }
-               
                    $("#receive").append(messageElement + "<br>");
                    // メッセージを接続中のpeerに送信する
-                   multiparty.send(messageElement,myname);
+                   multiparty.send(data,myname);
                    $text.val("");
                    
                });
