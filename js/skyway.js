@@ -121,6 +121,9 @@
                    audio: mute
                });
                $(this).text("audio " + (mute ? "unmute" : "mute")).data("muted", mute);
+                // $(this).backgroundImage :url(..img/mute.png)
+               
+               
            });
 
        }

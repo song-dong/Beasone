@@ -76,10 +76,17 @@ header{
 .my-videochat-room{
     margin:50px;
     width:180px;
-    height:150px;
+    height:200px;
     position: absolute;
     bottom:10px;
+    border-style: solid;
 }
+
+#myName-form{
+    position:absolute;
+    bottom:0;
+}
+
 .user-name{
     text-align: center;
     color: white;
@@ -168,6 +175,8 @@ button:hover{
     bottom: 0px;
     width: 100%;
 }
+
+
 
 .message-text{
     height: 40px;
