@@ -99,8 +99,7 @@
                if (data.text.length > 0) {
                    data.text = data.text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
                  //必ず自分のため右のバルーン
-                var messageElement = "<il><p class='sender_name me'>" 
-                + data.name + "</p><p class='right_balloon'>" + data.text 
+                var messageElement = "<il><p class='right_balloon'>" + data.text 
                 + "</p><p class='clear_balloon'></p></il>";
                }
                    $("#receive").append(messageElement + "<br>");
@@ -126,6 +125,7 @@
                    audio: mute
                });
                $(this).text("audio " + (mute ? "unmute" : "mute")).data("muted", mute);
+               alert($(this).text)
                if ($(this).text="audiounmute"){
                  alert("mute");
                 }else{
