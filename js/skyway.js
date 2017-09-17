@@ -45,9 +45,11 @@
                 //  }else{
                 //      alert("他の人");
                 //  };
-               alert(mesg.name);
+                var t = mesg.text
+                var n = mesg.name
+               alert(n);
                // peerからテキストメッセージを受信
-               $("#receive").append(mesg.text + "<br>");
+               $("#receive").append(t + "<br>");
            });
            ////////////////////////////////
            // Error handling
