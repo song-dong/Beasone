@@ -39,16 +39,15 @@
 
            ////////////////////////////////
            // for DataChannel
-           multiparty.on('message', function (mesg,username) {
+           multiparty.on('message', function (mesg) {
                 //  if (username == $(".myName").val()){
                 //   alert(username);  
                 //  }else{
                 //      alert("他の人");
                 //  };
-               alert(username);
-               
+               alert(mesg.name);
                // peerからテキストメッセージを受信
-               $("#receive").append(mesg.data + "<br>");
+               $("#receive").append(mesg.text + "<br>");
            });
            ////////////////////////////////
            // Error handling
@@ -93,20 +92,22 @@
                ev.preventDefault(); // onsubmitのデフォルト動作（reload）を抑制
                // テキストデータ取得
                var $text = $(this).find("input[type=text]");
-               var data = $text.val();
                var myname = $(".myName").val();//自分の名前を取得
-               if (data.length > 0) {
-                   data = data.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-                //   $("#receive").append(data + "<br>");
-                
+              var data = {
+                  text : $text.val(),
+                  name : myname 
+              };
+
+               if (data.text.length > 0) {
+                   data.text = data.text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
                  //必ず自分のため右のバルーン
                 var messageElement = "<il><p class='sender_name me'>" 
-                + myname + "</p><p class='right_balloon'>" + data 
+                + data.name + "</p><p class='right_balloon'>" + data.text 
                 + "</p><p class='clear_balloon'></p></il>";
                }
                    $("#receive").append(messageElement + "<br>");
                    // メッセージを接続中のpeerに送信する
-                   multiparty.send(data,myname);
+                   multiparty.send(data);
                    $text.val("");
                    
                });
