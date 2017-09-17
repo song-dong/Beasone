@@ -44,7 +44,7 @@
                    alert(username);  
                  }else{
                      alert("他の人");
-                 }
+                 };
                
                
                // peerからテキストメッセージを受信
@@ -94,16 +94,24 @@
                // テキストデータ取得
                var $text = $(this).find("input[type=text]");
                var data = $text.val();
-               var myname = $("#myName").val();//自分の名前を取得
+               var myname = $(".myName").val();//自分の名前を取得
                if (data.length > 0) {
                    data = data.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-                   $("#receive").append(data + "<br>");
-                   // メッセージを接続中のpeerに送信する
-                   multiparty.send(data,myname);
-                   $text.val("");
-                //   $("#myName").val("");
+                //   $("#receive").append(data + "<br>");
+                
+                   //ソンドンさんのチャット
+                var messageElement = $("<il><p class='sender_name me'>" 
+                + myname + "</p><p class='right_balloon'>" + data 
+                + "</p><p class='clear_balloon'></p></il>");
+                　//ここまで
                }
-           });
+               
+                   $("#receive").append(messageElement + "<br>");
+                   // メッセージを接続中のpeerに送信する
+                   multiparty.send(messageElement,myname);
+                   $text.val("");
+                   
+               });
 
            ///////////////////////////////////////////////////
            // handle mute/unmute

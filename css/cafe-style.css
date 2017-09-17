@@ -187,3 +187,46 @@ button:hover{
     color:white;
     font-size: 9px;
 }
+
+/*******************************
+* 左からの吹き出し
+********************************/
+.left_balloon {
+    color:#000;
+    position: relative;
+    background: #f1f0f0;
+    border: 0px solid #777;
+    margin: 5px 10px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    width: 400px;
+    clear: both;
+}
+
+/*******************************
+* 右からの吹き出し
+********************************/
+.right_balloon {
+    color: #fff;
+    position: relative;
+    background: #0084ff;
+    border: 0px solid #777;
+    margin: 5px 10px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    width: 400px;
+    clear: both;
+    float: right;
+}
+/******************************
+名前
+*******************************/
+.sender_name{
+    margin-bottom: -5px;
+    padding-left: 20px;
+    color: rgba(0, 0, 0, .8);
+}
+.sender_name.me{
+    float: right;
+    padding: 0 20px 0 0;
+}
