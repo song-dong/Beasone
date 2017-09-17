@@ -40,7 +40,7 @@
            ////////////////////////////////
            // for DataChannel
            multiparty.on('message', function (mesg,username) {
-                 if (uesrname == $("#myName").val()){
+                 if (username == $("#myName").val()){
                    alert(username);  
                  }else{
                      alert("他の人");
