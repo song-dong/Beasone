@@ -125,15 +125,15 @@
                    audio: mute
                });
                $(this).text("audio " + (mute ? "unmute" : "mute")).data("muted", mute);
-               alert($(this).text)
-               if ($(this).text="audiounmute"){
-                 alert("mute");
+  
+               if (mute==false){
+                      $(this).css('background-color',' #e36a27');
+                      $("#audio-mute").css('backgroundImage',url(..img/mute.png));
                 }else{
-                 alert("unmute");
+
                 };
-               //}.backgroundImage :url(..img/mute.png)
-               
-               
+ 
+              
            });
 
        }
