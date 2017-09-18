@@ -35,78 +35,82 @@
 
            //////////////////////////////////////////
            // Screen size change
-           $(document).on('ready', function () {
-               var $monitorVideo = $('.peer-video');
-               $(document).on('click', 'video', function (event) {
-                   if (event.target.id === 'monitorVideo') {
-                       $('html').removeClass('monitored');
-                       $monitorVideo.removeAttr('src');
-
-                       $monitorVideo.get(0).muted = true;
-                       $monitorVideo.get(0).volume = 0.0;
-
-                       console.log("Video is now muted: " + $monitorVideo.get(0).muted);
-                       console.log("Video volume is now: " + $monitorVideo.get(0).volume);
-
-                       setTimeout(function () {
-                           $('#monitorContainer').hide();
-                       }, 210);
-                       return;
-                   }
-                   $('#monitorContainer').show();
-                   setTimeout(function () {
-                       $('html').addClass('monitored');
-                       $monitorVideo.get(0).muted = false;
-                       $monitorVideo.get(0).volume = 1.0;
-
-                       console.log("Video is now muted: " + $monitorVideo.get(0).muted);
-                       console.log("Video volume is now: " + $monitorVideo.get(0).volume);
-                   }, 0);
-
-                   var remoteId = $(this).attr('id');
-                   console.log('skyway.js: remote ID is ' + remoteId);
-                   var remoteStream = existingCalls[remoteId].remoteStream;
-                   $monitorVideo.attr('src', URL.createObjectURL(remoteStream));
-               });
-               //               var resizeMonitor = function () {
-               //                   if ($monitorVideo.get(0).readyState === 0) {
-               //                       return;
-               //                   }
-               //                   var $monitorWrapper = $('#peerVideo');
-               //                   var wrapperWidth = $monitorWrapper.width();
-               //                   var srcWidth = $monitorVideo.get(0).videoWidth;
-               //                   var wrapperHeight = $monitorWrapper.height();
-               //                   var srcHeight = $monitorVideo.get(0).videoHeight;
-               //                   if (srcWidth / srcHeight > wrapperWidth / wrapperHeight) {
-               //                       var videoHeight = wrapperWidth * srcHeight / srcWidth;
-               //                       $monitorVideo.css({
-               //                           width: '100%',
-               //                           height: videoHeight + 'px',
-               //                           top: (wrapperHeight - videoHeight) / 2 + 'px'
-               //                       });
-               //
-               //                   } else {
-               //                       var videoWidth = wrapperHeight * srcWidth / srcHeight;
-               //                       $monitorVideo.css({
-               //                           width: videoWidth + 'px',
-               //                           height: '100%',
-               //                           left: (wrapperWidth - videoWidth) / 2 + 'px'
-               //                       });
-               //                   }
-               //               };
-           });
+           //           $(document).on('ready', function () {
+           //               var $monitorVideo = $('.peer-video');
+           //               $(document).on('click', 'video', function (event) {
+           //                   if (event.target.id === 'monitorVideo') {
+           //                       $('html').removeClass('monitored');
+           //                       $monitorVideo.removeAttr('src');
+           //
+           //                       $monitorVideo.get(0).muted = true;
+           //                       $monitorVideo.get(0).volume = 0.0;
+           //
+           //                       console.log("Video is now muted: " + $monitorVideo.get(0).muted);
+           //                       console.log("Video volume is now: " + $monitorVideo.get(0).volume);
+           //
+           //                       setTimeout(function () {
+           //                           $('#monitorContainer').hide();
+           //                       }, 210);
+           //                       return;
+           //                   }
+           //                   $('#monitorContainer').show();
+           //                   setTimeout(function () {
+           //                       $('html').addClass('monitored');
+           //                       $monitorVideo.get(0).muted = false;
+           //                       $monitorVideo.get(0).volume = 1.0;
+           //
+           //                       console.log("Video is now muted: " + $monitorVideo.get(0).muted);
+           //                       console.log("Video volume is now: " + $monitorVideo.get(0).volume);
+           //                   }, 0);
+           //
+           //                   var remoteId = $(this).attr('id');
+           //                   console.log('skyway.js: remote ID is ' + remoteId);
+           //                   var remoteStream = existingCalls[remoteId].remoteStream;
+           //                   $monitorVideo.attr('src', URL.createObjectURL(remoteStream));
+           //               });
+           //               var resizeMonitor = function () {
+           //                   if ($monitorVideo.get(0).readyState === 0) {
+           //                       return;
+           //                   }
+           //                   var $monitorWrapper = $('#peerVideo');
+           //                   var wrapperWidth = $monitorWrapper.width();
+           //                   var srcWidth = $monitorVideo.get(0).videoWidth;
+           //                   var wrapperHeight = $monitorWrapper.height();
+           //                   var srcHeight = $monitorVideo.get(0).videoHeight;
+           //                   if (srcWidth / srcHeight > wrapperWidth / wrapperHeight) {
+           //                       var videoHeight = wrapperWidth * srcHeight / srcWidth;
+           //                       $monitorVideo.css({
+           //                           width: '100%',
+           //                           height: videoHeight + 'px',
+           //                           top: (wrapperHeight - videoHeight) / 2 + 'px'
+           //                       });
+           //
+           //                   } else {
+           //                       var videoWidth = wrapperHeight * srcWidth / srcHeight;
+           //                       $monitorVideo.css({
+           //                           width: videoWidth + 'px',
+           //                           height: '100%',
+           //                           left: (wrapperWidth - videoWidth) / 2 + 'px'
+           //                       });
+           //                   }
+           //               };
+           //       });
 
            ////////////////////////////////
            // for DataChannel
-           $('#receive').animate({scrollTop: $('#receive')[0].scrollHeight}, 'fast');
+           $('#receive').animate({
+               scrollTop: $('#receive')[0].scrollHeight
+           }, 'fast');
            multiparty.on('message', function (mesg) {
                let v = mesg.data;
                var messageElement = "<il><p class='sender_name'>" +
                    v.name + "</p><p class='left_balloon'>" + v.text +
                    "</p><p class='clear_balloon'></p></il>";
                // peerからテキストメッセージを受信
-                $("#receive").append(messageElement + "<br>");
-                $('#receive').animate({scrollTop: $('#receive')[0].scrollHeight}, 'fast');
+               $("#receive").append(messageElement + "<br>");
+               $('#receive').animate({
+                   scrollTop: $('#receive')[0].scrollHeight
+               }, 'fast');
            });
            ////////////////////////////////
            // Error handling
@@ -154,46 +158,37 @@
 
            //////////////////////////////////////////////////////////
            // テキストフォームに入力されたテキストをpeerに送信
-        //   $("#message form").on("submit", function (ev) {
-            $("#message form").on("keydown", function (ev) {
-    
-                if (ev.keyCode == 13 && !ev.shiftKey){
-　　                ev.preventDefault();
-                    var $text = $(this).find("input[type=text]");
-                    var myname = $(".myName").val(); //自分の名前を取得
-                    var data = {
-                        text: $text.val(),
-                        name: myname
-                        };
-                    if (data.text.length > 0) {
+           //   $("#message form").on("submit", function (ev) {
+           $("#message form").on("keydown", function (ev) {
+
+               if (ev.keyCode == 13 && !ev.shiftKey) {
+                   ev.preventDefault();
+                   var $text = $(this).find("input[type=text]");
+                   var myname = $(".myName").val(); //自分の名前を取得
+                   var data = {
+                       text: $text.val(),
+                       name: myname
+                   };
+                   if (data.text.length > 0) {
                        data.text = data.text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
                        //必ず自分のため右のバルーン
                        var messageElement = "<il><p class='right_balloon'>" + data.text +
                            "</p><p class='clear_balloon'></p></il>";
-                        $("#receive").append(messageElement + "<br>");
-                        //   var positionY = $("#receive").offset().bottom;
-                        $('#receive').animate({scrollTop: $('#receive')[0].scrollHeight}, 'fast');
-                        // メッセージを接続中のpeerに送信する
-                        multiparty.send(data);
-                        $text.val("");
-                    }
-               }else if(ev.keyCode == 13 && ev.shiftKey){
-                
+                       $("#receive").append(messageElement + "<br>");
+                       //   var positionY = $("#receive").offset().bottom;
+                       $('#receive').animate({
+                           scrollTop: $('#receive')[0].scrollHeight
+                       }, 'fast');
+                       // メッセージを接続中のpeerに送信する
+                       multiparty.send(data);
+                       $text.val("");
+                   }
+               } else if (ev.keyCode == 13 && ev.shiftKey) {
+
                    ev.preventDefault();
                    alert("ev");
                    $(this).val = $(this).val + "<br>"
                }
-<<<<<<< HEAD
-=======
-               $("#receive").append(messageElement + "<br>");
-               $('#receive').animate({
-                   scrollTop: $('#receive')[0].scrollHeight
-               }, 'fast');
-               // メッセージを接続中のpeerに送信する
-               multiparty.send(data);
-               $text.val("");
-
->>>>>>> 6923d9048196a970823ea47683c6e10236595d1f
            });
 
            ///////////////////////////////////////////////////
