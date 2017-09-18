@@ -24,18 +24,17 @@ header{
     /*height: 680px;*/
 }
 .videochat-wrapper{
-    position: relative;
+    position: absolute;
     margin-right: auto;
-    /*border-style: solid;*/
     height:80%;
     width:79%;
-    top:60px;
+    bottom:0;
 }
 
 
 .videochat-group{
     display:flex;
-    height:60%;
+    height:70%;
     background:url("../img/sea.jpg");
     background-size: cover;
 }
@@ -77,10 +76,17 @@ header{
 .my-videochat-room{
     margin:50px;
     width:180px;
-    height:150px;
+    height:200px;
     position: absolute;
     bottom:10px;
+    border-style: solid;
 }
+
+#myName-form{
+    position:absolute;
+    bottom:0;
+}
+
 .user-name{
     text-align: center;
     color: white;
@@ -146,7 +152,6 @@ button:hover{
 	display: block;
 	text-align: center;
 	font-size: 200%;
-
     margin-left: auto;
     line-height: 19px;
 }
@@ -171,12 +176,51 @@ button:hover{
     width: 100%;
 }
 
+
+
 .message-text{
-    height: 30px;
+    height: 40px;
     width: 100%;
 }
 
 #receive{
     color:white;
     font-size: 9px;
+}
+
+/*******************************
+* 左からの吹き出し
+********************************/
+.left_balloon {
+    color:#31220f;
+    position: relative;
+    background: #FFFFFF;
+    border: 0px solid #777;
+    margin: 5px 10px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    /*width: 400px;*/
+    clear: both;
+}
+
+.sender_name{
+    margin-bottom: -5px;
+    padding-left: 20px;
+    color: white;
+}
+
+/*******************************
+* 右からの吹き出し
+********************************/
+.right_balloon {
+    color: #31220f;
+    position: relative;
+    background: #F6E3CE;
+    border: 0px solid #777;
+    margin: 5px 10px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    /*width: 400px;*/
+    clear: both;
+    float: right;
 }
