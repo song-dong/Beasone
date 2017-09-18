@@ -35,13 +35,15 @@
 
            ////////////////////////////////
            // for DataChannel
+           $('#receive').animate({scrollTop: $('#receive')[0].scrollHeight}, 'fast');
            multiparty.on('message', function (mesg) {
                let v = mesg.data;
                var messageElement = "<il><p class='sender_name'>" +
-                   v.username + "</p><p class='left_balloon'>" + v.text +
+                   v.name + "</p><p class='left_balloon'>" + v.text +
                    "</p><p class='clear_balloon'></p></il>";
                // peerからテキストメッセージを受信
-               $("#receive").append(messageElement + "<br>");
+                $("#receive").append(messageElement + "<br>");
+                $('#receive').animate({scrollTop: $('#receive')[0].scrollHeight}, 'fast');
            });
            ////////////////////////////////
            // Error handling
@@ -79,28 +81,35 @@
 
            //////////////////////////////////////////////////////////
            // テキストフォームに入力されたテキストをpeerに送信
-           $("#message form").on("submit", function (ev) {
-               ev.preventDefault(); // onsubmitのデフォルト動作（reload）を抑制
-               // テキストデータ取得
-               var $text = $(this).find("input[type=text]");
-               var myname = $(".myName").val(); //自分の名前を取得
-               var data = {
-                   text: $text.val(),
-                   name: myname
-               };
-
-               if (data.text.length > 0) {
-                   data.text = data.text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-                   //必ず自分のため右のバルーン
-                   var messageElement = "<il><p class='right_balloon'>" + data.text +
-                       "</p><p class='clear_balloon'></p></il>";
+        //   $("#message form").on("submit", function (ev) {
+            $("#message form").on("keydown", function (ev) {
+    
+                if (ev.keyCode == 13 && !ev.shiftKey){
+　　                ev.preventDefault();
+                    var $text = $(this).find("input[type=text]");
+                    var myname = $(".myName").val(); //自分の名前を取得
+                    var data = {
+                        text: $text.val(),
+                        name: myname
+                        };
+                    if (data.text.length > 0) {
+                       data.text = data.text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+                       //必ず自分のため右のバルーン
+                       var messageElement = "<il><p class='right_balloon'>" + data.text +
+                           "</p><p class='clear_balloon'></p></il>";
+                        $("#receive").append(messageElement + "<br>");
+                        //   var positionY = $("#receive").offset().bottom;
+                        $('#receive').animate({scrollTop: $('#receive')[0].scrollHeight}, 'fast');
+                        // メッセージを接続中のpeerに送信する
+                        multiparty.send(data);
+                        $text.val("");
+                    }
+               }else if(ev.keyCode == 13 && ev.shiftKey){
+                
+                   ev.preventDefault();
+                   alert("ev");
+                   $(this).val = $(this).val + "<br>"
                }
-               $("#receive").append(messageElement + "<br>");
-                $('#receive').animate({scrollTop: $('#receive')[0].scrollHeight}, 'fast');
-               // メッセージを接続中のpeerに送信する
-               multiparty.send(data);
-               $text.val("");
-
            });
 
            ///////////////////////////////////////////////////
