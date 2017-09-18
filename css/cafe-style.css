@@ -183,11 +183,14 @@ button:hover {
 .message-text {
     height: 40px;
     width: 100%;
+    word-wrap: break-word;
 }
 
 #receive {
+    height:80%;
     color: white;
     font-size: 9px;
+    overflow: scroll;
 }
 
 
@@ -205,6 +208,8 @@ button:hover {
     border-radius: 15px;
     /*width: 400px;*/
     clear: both;
+    display: inline-block;
+    word-wrap: break-word;
 }
 
 .sender_name {
@@ -229,4 +234,5 @@ button:hover {
     /*width: 400px;*/
     clear: both;
     float: right;
+    word-wrap: break-word;
 }

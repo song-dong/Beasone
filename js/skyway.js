@@ -96,6 +96,7 @@
                        "</p><p class='clear_balloon'></p></il>";
                }
                $("#receive").append(messageElement + "<br>");
+                $('#receive').animate({scrollTop: $('#receive')[0].scrollHeight}, 'fast');
                // メッセージを接続中のpeerに送信する
                multiparty.send(data);
                $text.val("");
