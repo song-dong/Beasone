@@ -1,57 +1,58 @@
-html, body{
+html,
+body {
     height: 100%;
 }
-    
-header{
-    display:flex;
-    height:30px;
+
+header {
+    display: flex;
+    height: 30px;
 }
 
-.wrapper{
-    height:100%;
+.wrapper {
+    height: 100%;
 }
-.logo-group{
+
+.logo-group {
     height: 30px;
     width: 100%;
-    background: white;  
+    background: white;
 }
 
-.room-wrapper{
+.room-wrapper {
     display: flex;
-    background: -webkit-linear-gradient(left,#5c3e2d, #79492d); 
-    height:100vh;
-    width:100%;
+    background: -webkit-linear-gradient(left, #5c3e2d, #79492d);
+    height: 100vh;
+    width: 100%;
     /*height: 680px;*/
 }
-.videochat-wrapper{
+
+.videochat-wrapper {
     position: absolute;
     margin-right: auto;
-    height:80%;
-    width:79%;
-    bottom:0;
+    height: 80%;
+    width: 79%;
+    bottom: 0;
 }
 
-
-.videochat-group{
-    display:flex;
-    height:70%;
-    background:url("../img/sea.jpg");
+.videochat-group {
+    display: flex;
+    height: 70%;
+    background: url("../img/sea.jpg");
     background-size: cover;
 }
 
 @media screen and (max-width: 1100px) {
-  .videochat-group {
-    flex-direction: column;
-  }
+    .videochat-group {
+        flex-direction: column;
+    }
 }
 
-.videochat-room{
+.videochat-room {
     border-style: solid;
     border-width: 20px;
-    border-color:#2f1f14;
-    width:45%;
-    margin:10px;
-
+    border-color: #2f1f14;
+    width: 45%;
+    margin: 10px;
 }
 
 .my-video {
@@ -60,139 +61,142 @@ header{
 
 .peer-video {
     width: 420px;
+    margin-left: 20px;
 }
 
 .peer-screen {
     width: 420px;
 }
 
-.video-box{
-    height:80%;
-    width:90%;
-    margin:auto;
+.video-box {
+    height: 80%;
+    width: 90%;
+    margin: auto;
     border-style: solid;
-
 }
-.my-videochat-room{
-    margin:50px;
-    width:180px;
-    height:200px;
+
+.my-videochat-room {
+    margin: 50px;
+    width: 180px;
+    height: 200px;
     position: absolute;
-    bottom:10px;
+    bottom: 10px;
     border-style: solid;
 }
 
-#myName-form{
-    position:absolute;
-    bottom:0;
+#myName-form {
+    position: absolute;
+    bottom: 0;
 }
 
-.user-name{
+.user-name {
     text-align: center;
     color: white;
 }
 
-.video-toolbar{
+.video-toolbar {
     position: absolute;
     bottom: 0px;
-    width:100%;
+    width: 100%;
 }
-.video-toolbar-group{
+
+.video-toolbar-group {
     display: flex;
     justify-content: center;
-    width:500px;
+    width: 500px;
     background-color: #2e2e2e;
-    margin:auto;
+    margin: auto;
     border-radius: 5px;
 }
-.video-toolbar-itemtext{
+
+.video-toolbar-itemtext {
     bottom: 0;
-    color:white;
+    color: white;
 }
 
-.video-button{
-    border-radius: 5px 0px 0px 5px;   
+.video-button {
+    border-radius: 5px 0px 0px 5px;
 }
 
-.share-button{
+.share-button {
     background-color: #e36a27;
-    color:white;
-    border-radius: 0px 5px 5px 0px; 
+    color: white;
+    border-radius: 0px 5px 5px 0px;
 }
-button{
-    height:60px;
-    width:100px; 
-    background:none;
-    border:0;
+
+button {
+    height: 60px;
+    width: 100px;
+    background: none;
+    border: 0;
     background-color: #2e2e2e;
-
 }
 
-button:hover{
-    background-color:#808080;
+button:hover {
+    background-color: #808080;
 }
 
-.messages-header{
+.messages-header {
     width: 100%;
     text-align: right;
 }
 
-#chat-close-img{
+#chat-close-img {
     margin-left: auto;
 }
 
-#chat-close-button{
-	width: 35px;
-	height: 35px;
-	background: #5c3e2d;
-	border-radius: 70px;
-	-moz-border-radius: 70px;
-	-webkit-border-radius: 70px;
-	color: white;
-	display: block;
-	text-align: center;
-	font-size: 200%;
+#chat-close-button {
+    width: 35px;
+    height: 35px;
+    background: #5c3e2d;
+    border-radius: 70px;
+    -moz-border-radius: 70px;
+    -webkit-border-radius: 70px;
+    color: white;
+    display: block;
+    text-align: center;
+    font-size: 200%;
     margin-left: auto;
     line-height: 19px;
 }
 
-.messages-wrapper{
+.messages-wrapper {
     height: 85%;
-    width:20%;
-    background-color:#2e2e2e;
+    width: 20%;
+    background-color: #2e2e2e;
     border-radius: 5px;
-    position:absolute;
-    bottom:0px;
-    right:12px;
+    position: absolute;
+    bottom: 0px;
+    right: 12px;
 }
 
-.comment-body{
+.comment-body {
     margin: 10px;
 }
 
-#message-form{
-    position:absolute;
+#message-form {
+    position: absolute;
     bottom: 0px;
     width: 100%;
 }
 
-
-
-.message-text{
+.message-text {
     height: 40px;
     width: 100%;
 }
 
-#receive{
-    color:white;
+#receive {
+    color: white;
     font-size: 9px;
 }
+
 
 /*******************************
 * 左からの吹き出し
 ********************************/
+
 .left_balloon {
-    color:#31220f;
+    color: #31220f;
     position: relative;
     background: #FFFFFF;
     border: 0px solid #777;
@@ -203,15 +207,17 @@ button:hover{
     clear: both;
 }
 
-.sender_name{
+.sender_name {
     margin-bottom: -5px;
     padding-left: 20px;
     color: white;
 }
 
+
 /*******************************
 * 右からの吹き出し
 ********************************/
+
 .right_balloon {
     color: #31220f;
     position: relative;

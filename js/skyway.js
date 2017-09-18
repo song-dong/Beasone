@@ -27,11 +27,7 @@
                console.log(video);
                var vNode = MultiParty.util.createVideoNode(video);
                vNode.setAttribute("class", "peer-video");
-               // 各peerを指定の画面に配置
-               var v = $('video').length;
-               for (var i = 0; i < v; i++) {
-                   $(vNode).appendTo("#peerVideo" + (i + 1));
-               }
+               $(vNode).appendTo("#peerVideo");
            }).on('ms_close', function (peer_id) {
                // peerが切れたら、対象のvideoノードを削除する
                $("#" + peer_id).remove();
@@ -39,11 +35,11 @@
 
            ////////////////////////////////
            // for DataChannel
-              multiparty.on('message', function (mesg) {
-              let v = mesg.data;
-              var messageElement = "<il><p class='sender_name'>" 
-              + v.username + "</p><p class='left_balloon'>" + v.text 
-              + "</p><p class='clear_balloon'></p></il>";
+           multiparty.on('message', function (mesg) {
+               let v = mesg.data;
+               var messageElement = "<il><p class='sender_name'>" +
+                   v.username + "</p><p class='left_balloon'>" + v.text +
+                   "</p><p class='clear_balloon'></p></il>";
                // peerからテキストメッセージを受信
                $("#receive").append(messageElement + "<br>");
            });
@@ -78,10 +74,7 @@
                // peerのvideoを表示
                var vNode = MultiParty.util.createVideoNode(video);
                vNode.setAttribute("class", "peer-video");
-               var v = $('video').length;
-               for (var i = 0; i < v; i++) {
-                   $(vNode).appendTo("#peerVideo" + i);
-               }
+               $(vNode).appendTo("#peerVideo");
            });
 
            //////////////////////////////////////////////////////////
@@ -90,24 +83,24 @@
                ev.preventDefault(); // onsubmitのデフォルト動作（reload）を抑制
                // テキストデータ取得
                var $text = $(this).find("input[type=text]");
-               var myname = $(".myName").val();//自分の名前を取得
-              var data = {
-                  text : $text.val(),
-                  name : myname 
-              };
+               var myname = $(".myName").val(); //自分の名前を取得
+               var data = {
+                   text: $text.val(),
+                   name: myname
+               };
 
                if (data.text.length > 0) {
                    data.text = data.text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-                 //必ず自分のため右のバルーン
-                var messageElement = "<il><p class='right_balloon'>" + data.text 
-                + "</p><p class='clear_balloon'></p></il>";
+                   //必ず自分のため右のバルーン
+                   var messageElement = "<il><p class='right_balloon'>" + data.text +
+                       "</p><p class='clear_balloon'></p></il>";
                }
-                   $("#receive").append(messageElement + "<br>");
-                   // メッセージを接続中のpeerに送信する
-                   multiparty.send(data);
-                   $text.val("");
-                   
-               });
+               $("#receive").append(messageElement + "<br>");
+               // メッセージを接続中のpeerに送信する
+               multiparty.send(data);
+               $text.val("");
+
+           });
 
            ///////////////////////////////////////////////////
            // handle mute/unmute
@@ -125,15 +118,15 @@
                    audio: mute
                });
                $(this).text("audio " + (mute ? "unmute" : "mute")).data("muted", mute);
-  
-               if (mute==false){
-                      $(this).css('background-color',' #e36a27');
-                      $("#audio-mute").css('backgroundImage','(..img/mute.png)');
-                }else{
 
-                };
- 
-              
+               if (mute == false) {
+                   $(this).css('background-color', ' #e36a27');
+                   $("#audio-mute").css('backgroundImage', '(..img/mute.png)');
+               } else {
+
+               };
+
+
            });
 
        }
