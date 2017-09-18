@@ -73,7 +73,8 @@
                        });
                    }
                } else {
-                   alert('Please install the following chrome extension.<br>URL:');
+                   alert('Please install the following chrome extension.');
+                   location.href = 'https://chrome.google.com/webstore/detail/beasone/okgcdiebkminelcmpkghnlgiboimifbd?hl=ja&gl=JP';
                }
            });
 
