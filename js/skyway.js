@@ -50,6 +50,9 @@
            });
 
            multiparty.start();
+           var screen = new SkyWay.ScreenShare({
+               debug: true
+           });
            let isScreenShareOn = false
            // Screen share
            $("#screenShare").on("click", function (e) {
@@ -70,7 +73,7 @@
                        });
                    }
                } else {
-                   alert('Please install the following chrome extension.<br>URL');
+                   alert('Please install the following chrome extension.<br>URL:');
                }
            });
 
