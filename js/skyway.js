@@ -128,7 +128,7 @@
   
                if (mute==false){
                       $(this).css('background-color',' #e36a27');
-                      $("#audio-mute").css('backgroundImage',url(..img/mute.png));
+                      $("#audio-mute").css('backgroundImage',url('..img/mute.png'));
                 }else{
 
                 };
