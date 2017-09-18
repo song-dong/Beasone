@@ -33,6 +33,69 @@
                $("#" + peer_id).remove();
            })
 
+           //////////////////////////////////////////
+           // Screen size change
+           $(document).on('ready', function () {
+               var $monitorVideo = $('.peer-video');
+               $(document).on('click', 'video', function (event) {
+                   if (event.target.id === 'monitorVideo') {
+                       $('html').removeClass('monitored');
+                       $monitorVideo.removeAttr('src');
+
+                       $monitorVideo.get(0).muted = true;
+                       $monitorVideo.get(0).volume = 0.0;
+
+                       console.log("Video is now muted: " + $monitorVideo.get(0).muted);
+                       console.log("Video volume is now: " + $monitorVideo.get(0).volume);
+
+                       setTimeout(function () {
+                           $('#monitorContainer').hide();
+                       }, 210);
+                       return;
+                   }
+                   $('#monitorContainer').show();
+                   setTimeout(function () {
+                       $('html').addClass('monitored');
+                       $monitorVideo.get(0).muted = false;
+                       $monitorVideo.get(0).volume = 1.0;
+
+                       console.log("Video is now muted: " + $monitorVideo.get(0).muted);
+                       console.log("Video volume is now: " + $monitorVideo.get(0).volume);
+                   }, 0);
+
+                   var remoteId = $(this).attr('id');
+                   console.log('skyway.js: remote ID is ' + remoteId);
+                   var remoteStream = existingCalls[remoteId].remoteStream;
+                   $monitorVideo.attr('src', URL.createObjectURL(remoteStream));
+               });
+               //               var resizeMonitor = function () {
+               //                   if ($monitorVideo.get(0).readyState === 0) {
+               //                       return;
+               //                   }
+               //                   var $monitorWrapper = $('#peerVideo');
+               //                   var wrapperWidth = $monitorWrapper.width();
+               //                   var srcWidth = $monitorVideo.get(0).videoWidth;
+               //                   var wrapperHeight = $monitorWrapper.height();
+               //                   var srcHeight = $monitorVideo.get(0).videoHeight;
+               //                   if (srcWidth / srcHeight > wrapperWidth / wrapperHeight) {
+               //                       var videoHeight = wrapperWidth * srcHeight / srcWidth;
+               //                       $monitorVideo.css({
+               //                           width: '100%',
+               //                           height: videoHeight + 'px',
+               //                           top: (wrapperHeight - videoHeight) / 2 + 'px'
+               //                       });
+               //
+               //                   } else {
+               //                       var videoWidth = wrapperHeight * srcWidth / srcHeight;
+               //                       $monitorVideo.css({
+               //                           width: videoWidth + 'px',
+               //                           height: '100%',
+               //                           left: (wrapperWidth - videoWidth) / 2 + 'px'
+               //                       });
+               //                   }
+               //               };
+           });
+
            ////////////////////////////////
            // for DataChannel
            multiparty.on('message', function (mesg) {
@@ -49,6 +112,8 @@
                alert(err);
            });
 
+           //////////////////////////////////
+           // Screen Share
            multiparty.start();
            var screen = new SkyWay.ScreenShare({
                debug: true
