@@ -52,23 +52,31 @@
            });
 
            multiparty.start();
+           var screen = new SkyWay.ScreenShare({
+               debug: true
+           });
            let isScreenShareOn = false
            // Screen share
            $("#screenShare").on("click", function (e) {
                e.preventDefault();
-               if (isScreenShareOn) {
-                   multiparty.stopScreenShare()
-                   isScreenShareOn = false
-                   multiparty.startMediaStream_()
+               if (screen.isEnabledExtension()) {
+                   if (isScreenShareOn) {
+                       multiparty.stopScreenShare()
+                       isScreenShareOn = false
+                       multiparty.startMediaStream_()
+                   } else {
+                       multiparty.startScreenShare(function (stream) {
+                           attachMediaStream($('video.my-video')[0], stream);
+                           isScreenShareOn = true
+                       }, function (err) {
+                           console.log(err)
+                           console.log("screen-share failed")
+                           // error callback
+                       });
+                   }
                } else {
-                   multiparty.startScreenShare(function (stream) {
-                       attachMediaStream($('video.my-video')[0], stream);
-                       isScreenShareOn = true
-                   }, function (err) {
-                       console.log(err)
-                       console.log("screen-share failed")
-                       // error callback
-                   });
+                   alert('Please install the following chrome extension.');
+                   location.href = 'https://chrome.google.com/webstore/detail/beasone/okgcdiebkminelcmpkghnlgiboimifbd?hl=ja&gl=JP';
                }
            });
 
@@ -110,6 +118,17 @@
                    alert("ev");
                    $(this).val = $(this).val + "<br>"
                }
+<<<<<<< HEAD
+=======
+               $("#receive").append(messageElement + "<br>");
+               $('#receive').animate({
+                   scrollTop: $('#receive')[0].scrollHeight
+               }, 'fast');
+               // メッセージを接続中のpeerに送信する
+               multiparty.send(data);
+               $text.val("");
+
+>>>>>>> 6923d9048196a970823ea47683c6e10236595d1f
            });
 
            ///////////////////////////////////////////////////
