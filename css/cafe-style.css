@@ -191,8 +191,11 @@ button:hover {
     color: white;
     font-size: 9px;
     overflow: scroll;
+    /*overflow:hidden;*/
 }
-
+/*scrollbar {*/
+/*    display: none;*/
+/*  }*/
 
 /*******************************
 * 左からの吹き出し

@@ -87,13 +87,47 @@
                $(vNode).appendTo("#peerVideo");
            });
 
+    ///////////////////////////////////////////
+    //ダブルクリックで最大化と元のサイズに戻す
+    ///////////////////////////////////////////
+   $(document).on('dblclick', 'video', function(event) {
+    if (this.webkitRequestFullScreen) {
+      this.webkitRequestFullScreen();
+    } else if (this.mozRequestFullScreen) {
+      this.mozRequestFullScreen();
+    } else if (this.msRequestFullscreen) {
+      this.msRequestFullscreen();
+    } else {
+      this.requestFullScreen();
+    }
+  });
+
+
+   $(document).on('dblclick', 'video', function(event) {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    }
+  });
+  ///////////////////////////////////////////
+  //ここまでダブルクリック
+  ///////////////////////////////////////////  
+  
+
+
+
            //////////////////////////////////////////////////////////
            // テキストフォームに入力されたテキストをpeerに送信
-        //   $("#message form").on("submit", function (ev) {
-            $("#message form").on("keydown", function (ev) {
-    
-                if (ev.keyCode == 13 && !ev.shiftKey){
-　　                ev.preventDefault();
+          $("#message form").on("submit", function (ev) {
+            // $("#message form").on("keydown", function (ev) {
+                      ev.preventDefault();
+                // if (ev.keyCode == 13 && !ev.shiftKey){
+　　              
                     var $text = $(this).find("input[type=text]");
                     var myname = $(".myName").val(); //自分の名前を取得
                     var data = {
@@ -112,23 +146,20 @@
                         multiparty.send(data);
                         $text.val("");
                     }
-               }else if(ev.keyCode == 13 && ev.shiftKey){
+            //   }else if(ev.keyCode == 13 && ev.shiftKey){
                 
-                   ev.preventDefault();
-                   alert("ev");
-                   $(this).val = $(this).val + "<br>"
-               }
-<<<<<<< HEAD
-=======
-               $("#receive").append(messageElement + "<br>");
+                //   ev.preventDefault();
+                //   alert("ev");
+                //   $(this).val = $(this).val + "<br>"
+            //   }
+            //   $("#receive").append(messageElement + "<br>");
                $('#receive').animate({
                    scrollTop: $('#receive')[0].scrollHeight
                }, 'fast');
                // メッセージを接続中のpeerに送信する
-               multiparty.send(data);
-               $text.val("");
+            //   multiparty.send(data);
+            //   $text.val("");
 
->>>>>>> 6923d9048196a970823ea47683c6e10236595d1f
            });
 
            ///////////////////////////////////////////////////
@@ -146,13 +177,14 @@
                multiparty.mute({
                    audio: mute
                });
-               $(this).text("audio " + (mute ? "unmute" : "mute")).data("muted", mute);
+              $(this).text("audio " + (mute ? "unmute" : "mute")).data("muted", mute);
 
                if (mute == false) {
                    $(this).css('background-color', ' #e36a27');
-                   $("#audio-mute").css('backgroundImage', '(..img/mute.png)');
+                   $(this).css('backgroundImage', 'url(..img/mute.png)');
                } else {
-
+            
+                　 $(this).css('background-color', '#2e2e2e');
                };
 
 
