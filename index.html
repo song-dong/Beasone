@@ -9,11 +9,9 @@
     <script type="text/javascript" src="js/multiparty.js"></script>
     <script type="text/javascript" src="https://skyway.io/dist/adapter.js"></script>
     <script type="text/javascript" src="https://skyway.io/dist/screenshare.js"></script>
-
-
+    <script type="text/javascript" src="https://skyway.io/dist/0.3/peer.js"></script>
 
 </head>
-
 
 <body>
     <div class="wrapper">
@@ -32,8 +30,9 @@
                 <div class="videochat-header">
                     <!--<button class="url-copy">Copy link</button>-->
                 </div>
-                <div id="peerVideo" class="videochat-group">
-                    <!--
+                <div id="monitorContainer">
+                    <div id="peerVideo" class="videochat-group">
+                        <!--
                     <div class="videochat-room">
                         <div id="peerVideo1" class="video-box">
 
@@ -54,6 +53,7 @@
                         </div>
                     </div>
 -->
+                    </div>
                 </div>
 
                 <div class="my-videochat-room">
@@ -73,10 +73,10 @@
                         <div class="video-toolbar-itemtext">Video</div>
                     </button>
                         <button id="audio-mute" data-muted="false" class="mic-button">
-                        <img src="img/mic.png" alt="" height="30">
+                        <img src="img/mic.png" alt="" height="30" id="mic-img">
                         <div class="video-toolbar-itemtext">Microphone</div>
                     </button>
-                        <button>
+                        <button class="close-button">
                         <img src="img/cafe.png" alt="" height="35">
                         <div class="video-toolbar-itemtext">close</div>
                     </button>
