@@ -1,6 +1,8 @@
        var multiparty;
 
        function start() {
+            
+
 
            // MultiParty インスタンスを生成
            multiparty = new MultiParty({
@@ -259,9 +261,18 @@
            });
            
           $(".close-button").on("click",function(){
-              alert("byebye.");
+              alert("bye-bye.");
               window.open('about:blank','_self').close();
           })
+  
+        $("#url").val(location.href); 
+        
+        
+        $(".url-copy").on("click",function(){
+            var urltext = $("#url");
+            urltext.select();
+            document.execCommand("copy");
+        })
           
 
        }

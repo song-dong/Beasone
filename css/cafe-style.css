@@ -34,6 +34,15 @@ header {
     bottom: 0;
 }
 
+.url-copy{
+    height:30px;
+    color:white;
+}
+
+.url-copy:hover{
+    background-color: #e36a27;
+}
+
 #monitorContainer {
     display: flex;
     height: 70%;
@@ -78,11 +87,12 @@ header {
 }
 */
 
-@media screen and (max-width: 1100px) {
-    .videochat-group {
-        flex-direction: column;
-    }
-}
+/*@media screen and (max-width: 1100px) {*/
+/*    .videochat-group {*/
+/*        display:flex;*/
+/*        flex-direction: column;*/
+/*    }*/
+/*}*/
 
 .videochat-room {
     border-style: solid;
@@ -98,14 +108,14 @@ header {
 
 
 .peer-video {
-    width: 420px;
-    margin-left: 20px;
+    width: 50%;
+    /*margin-left: 20px;*/
 }
 
 
-.peer-screen {
-    width: 420px;
-}
+/*.peer-screen {*/
+/*    width: 420px;*/
+/*}*/
 
 .video-box {
     height: 80%;
@@ -113,6 +123,7 @@ header {
     margin: auto;
     border-style: solid;
 }
+
 
 .my-videochat-room {
     margin: 50px;
