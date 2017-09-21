@@ -34,7 +34,7 @@ header {
     position: absolute;
     margin-right: auto;
     height: 80%;
-    width: 79%;
+    width: 78%;
     bottom: 0;
 }
 
@@ -55,6 +55,7 @@ header {
     height: 90%;
     background: url("../img/sea.jpg");
     background-size: cover;
+    border: solid 20px #9F6C3E;
 /*
     z-index: 200;
     opacity: 0;
@@ -158,7 +159,7 @@ header {
 .video-toolbar-group {
     display: flex;
     justify-content: center;
-    width: 500px;
+    width: 400px;
     background-color: #2e2e2e;
     margin: auto;
     border-radius: 5px;
@@ -173,7 +174,7 @@ header {
     border-radius: 5px 0px 0px 5px;
 }
 
-.share-button {
+.close-button {
     background-color: #e36a27;
     color: white;
     border-radius: 0px 5px 5px 0px;
@@ -227,7 +228,7 @@ button:hover {
     text-align: center;
     /*font-size: 200%;*/
     position: absolute;
-    bottom: 15px;
+    bottom: 0px;
     right: 20px;
     line-height: 19px;   
 }

@@ -1,9 +1,9 @@
+
+
        var multiparty;
 
        function start() {
             
-
-
            // MultiParty インスタンスを生成
            multiparty = new MultiParty({
                "key": "1061e0f9-3006-4af2-8266-82ce6c34b677" /* SkyWay key */ ,
@@ -275,17 +275,22 @@
         })
         
         $("#chat-close-button").on("click",function(){
-            $(".messages-wrapper").hide(2000); 
-            $("#chat-show-button").show(2000);
+            $(".messages-wrapper").hide(1000); 
+            $("#chat-show-button").show(1000);
+            var w = $(".room-wrapper").width()-50;
+            $("#monitorContainer").animate({width:w},2000);
         })
         
         $("#chat-show-button").on("click",function(){
-            $("#chat-show-button").hide(2000);   
-            $(".messages-wrapper").show(2000); 
-        
+            $("#chat-show-button").hide(1000);   
+            $(".messages-wrapper").show(1000);
+            var d = $("#monitorContainer").width()*0.79;
+            $("#monitorContainer").animate({width:d},1000);        
         })
           
 
        }
 
        start();
+
+    
