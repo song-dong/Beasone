@@ -273,6 +273,17 @@
             urltext.select();
             document.execCommand("copy");
         })
+        
+        $("#chat-close-button").on("click",function(){
+            $(".messages-wrapper").hide(2000); 
+            $("#chat-show-button").show(2000);
+        })
+        
+        $("#chat-show-button").on("click",function(){
+            $("#chat-show-button").hide(2000);   
+            $(".messages-wrapper").show(2000); 
+        
+        })
           
 
        }

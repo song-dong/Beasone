@@ -8,6 +8,10 @@ header {
     height: 30px;
 }
 
+.room-url{
+    margin:0 30px;
+}
+
 .wrapper {
     height: 100%;
 }
@@ -34,6 +38,9 @@ header {
     bottom: 0;
 }
 
+#url{
+    width:300px;
+}
 .url-copy{
     height:30px;
     color:white;
@@ -45,7 +52,7 @@ header {
 
 #monitorContainer {
     display: flex;
-    height: 70%;
+    height: 90%;
     background: url("../img/sea.jpg");
     background-size: cover;
 /*
@@ -106,12 +113,10 @@ header {
     width: 160px;
 }
 
-
 .peer-video {
-    width: 50%;
+    /*width: 50%;*/
     /*margin-left: 20px;*/
 }
-
 
 /*.peer-screen {*/
 /*    width: 420px;*/
@@ -126,11 +131,11 @@ header {
 
 
 .my-videochat-room {
-    margin: 50px;
-    width: 180px;
-    height: 200px;
+    margin: 0px;
+    width: 100px;
+    height: 100px;
     position: absolute;
-    bottom: 10px;
+    bottom: 0px;
     border-style: solid;
 }
 
@@ -208,6 +213,23 @@ button:hover {
     font-size: 200%;
     margin-left: auto;
     line-height: 19px;
+}
+
+#chat-show-button{
+    width: 50px;
+    height: 50px;
+    background: #e36a27;
+    border-radius: 70px;
+    -moz-border-radius: 70px;
+    -webkit-border-radius: 70px;
+    color: white;
+    display: none;
+    text-align: center;
+    /*font-size: 200%;*/
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    line-height: 19px;   
 }
 
 .messages-wrapper {
@@ -289,4 +311,11 @@ button:hover {
     clear: both;
     float: right;
     word-wrap: break-word;
+}
+
+#message-img{
+    position:absolute;
+    bottom:0;
+    right:20px;
+    display: none;
 }
