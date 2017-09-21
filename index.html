@@ -24,13 +24,14 @@
                       <input type="textarea" id="url"/>
                     <button class="url-copy">Copy URL</button>
             </div>
+            <form id="myName-form">
+                <p id="name-id">name</p>
+                <input type="text" class="myName">
+            </form>
         </header>
         <div class="room-wrapper">
             <div class="videochat-wrapper">
 
-                <!--<div class="videochat-header">-->
-
-                <!--</div>-->
                 <div id="monitorContainer">
                     <div id="peerVideo" class="videochat-group">
                         <!--
@@ -56,49 +57,45 @@
 -->
                     </div>
                 </div>
+                
+                <div class="video-footer">
+                    <div class="my-videochat-room">
+                        <div id="myVideo" class="video-box">
+                        </div>
 
-                <div class="my-videochat-room">
-                    <div id="myVideo" class="video-box">
                     </div>
-
-                    <form id="myName-form">
-                        <p>name</p>
-                        <input type="text" class="myName">
-                    </form>
-                </div>
-
-                <div class="video-toolbar">
-                    <div class="video-toolbar-group">
-                        <button id="video-mute" data-muted="false" class="video-button">
-                            <img src="img/video.png" alt="" height="35">
-                            <div class="video-toolbar-itemtext">Video</div>
-                        </button>
-                        <button id="audio-mute" data-muted="false" class="mic-button">
-                            <img src="img/mic.png" alt="" height="30" id="mic-img">
-                            <div class="video-toolbar-itemtext">Microphone</div>
-                        </button>
     
-                        <!--    <button class="translation-button">-->
-                            <!--<img src="" alt="">-->
-                        <!--    <div class="video-toolbar-itemtext">Translation</div>-->
-                        <!--</button>-->
-                        <button id="screenShare" class="share-button">
-                            <img src="img/shareScreen.png" alt="" height="30">
-                            <div class="video-toolbar-itemtext">ShareScreen</div>
-                        </button>
-                        <button class="close-button">
-                            <img src="img/cafe-white.png" alt="" height="35">
-                            <div class="video-toolbar-itemtext">close</div>
-                        </button>
+                    <div class="video-toolbar">
+                        <div class="video-toolbar-group">
+                            <button id="video-mute" data-muted="false" class="video-button">
+                                <img src="img/video.png" alt="" height="35">
+                                <div class="video-toolbar-itemtext">Video</div>
+                            </button>
+                            <button id="audio-mute" data-muted="false" class="mic-button">
+                                <img src="img/mic.png" alt="" height="30" id="mic-img">
+                                <div class="video-toolbar-itemtext">Microphone</div>
+                            </button>
+        
+                            <!--    <button class="translation-button">-->
+                                <!--<img src="" alt="">-->
+                            <!--    <div class="video-toolbar-itemtext">Translation</div>-->
+                            <!--</button>-->
+                            <button id="screenShare" class="share-button">
+                                <img src="img/shareScreen.png" alt="" height="30">
+                                <div class="video-toolbar-itemtext">ShareScreen</div>
+                            </button>
+                            <button class="close-button">
+                                <img src="img/cafe-white.png" alt="" height="35">
+                                <div class="video-toolbar-itemtext">close</div>
+                            </button>
+                        </div>
                     </div>
                 </div>
-
             </div>
 
             <div id="message" class="messages-wrapper">
                 <div class="messages-header">
                     <button id="chat-close-button">×</button>
-                    <!--<img src="img/chat-close.png" id="chat-close-img">-->
                 </div>
                 <!--<p>message</p>-->
 

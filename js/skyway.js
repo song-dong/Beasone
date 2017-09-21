@@ -229,12 +229,13 @@
                });
             //  alert($(this).text());
                $(this).text("video " + (mute ? "unmute" : "mute")).data("muted", mute);
-               if ($(this).text()=="unmute"){
-                //   alert("unmuteだよ")
-                    $(this).text("mute");
+               if (mute==true){
+                    $(this).text("unmute");
+                　  $(this).css('color', 'white');
                 　  $(this).css('background-color', '#2e2e2e');
                } else {
-                    $(this).text("unmute");
+                    $(this).text("mute");
+                　  $(this).css('color', 'white');
                     $(this).css('background-color', '#e36a27');
                };
            });
@@ -249,12 +250,15 @@
        
                if (mute == false) {
                     $(this).css('background-color', ' #e36a27');
-                    $("#mic-img").attr('src',"..img/mute.png")
+                    $("#mic-img").attr('src','url(..img/mute.png)')
+                    $("#mic-img").append('src','url(..img/mute.png)')
                     $(this).text("mute");
+                　  $(this).css('color', 'white');
                } else {
                 　  $(this).css('background-color', '#2e2e2e');
                     // $(this).css('background-image','url(../img/mic.png)')
                     $(this).text("unmute");
+                　  $(this).css('color', 'white');
                };
   //$('img[src="sample1.jpg"]').attr('src','sample3.gif');
 

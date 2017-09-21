@@ -33,7 +33,7 @@ header {
 .videochat-wrapper {
     position: absolute;
     margin-right: auto;
-    height: 80%;
+    height: 90%;
     width: 78%;
     bottom: 0;
 }
@@ -51,11 +51,14 @@ header {
 }
 
 #monitorContainer {
-    display: flex;
-    height: 90%;
+    position:absolute;
+    height: 70%;
     background: url("../img/sea.jpg");
     background-size: cover;
     border: solid 20px #9F6C3E;
+    /*bottom:0;*/
+    /*margin:40px 0px 0px 0px;*/
+    width:97%;
 /*
     z-index: 200;
     opacity: 0;
@@ -66,28 +69,18 @@ header {
 */
 }
 
-/*
-#monitorContainer #peerVideo {
-    position: absolute;
-    left: 10%;
-    top: 10%;
-    width: 80%;
-    height: 80%;
-}
-*/
 
-/*
-.peer-video {
-    position: absolute;
-    left: 0%;
-    top: 0%;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    background-color: black;
-    display: block;
-}
-*/
+/*#monitorContainer #peerVideo {*/
+/*    display: flex;*/
+/*    position: absolute;*/
+/*    left: 10%;*/
+/*    top: 10%;*/
+/*    width: 80%;*/
+/*    height: 80%;*/
+/*}*/
+
+
+
 
 /*
 .monitored #monitorContainer {
@@ -95,12 +88,13 @@ header {
 }
 */
 
-/*@media screen and (max-width: 1100px) {*/
-/*    .videochat-group {*/
-/*        display:flex;*/
-/*        flex-direction: column;*/
-/*    }*/
-/*}*/
+.videochat-group {
+    display:flex;
+    /*flex-direction: column;*/
+    margin-top:auto;
+    position:relative;
+}
+
 
 .videochat-room {
     border-style: solid;
@@ -115,13 +109,13 @@ header {
 }
 
 .peer-video {
-    /*width: 50%;*/
+    width: 50%;
+    /*position:absolute;*/
+    /*top:0;*/
+    /*bottom:0;*/
+    margin:auto;
     /*margin-left: 20px;*/
 }
-
-/*.peer-screen {*/
-/*    width: 420px;*/
-/*}*/
 
 .video-box {
     height: 80%;
@@ -133,18 +127,30 @@ header {
 
 .my-videochat-room {
     margin: 0px;
-    width: 100px;
-    height: 100px;
+    width: 180px;
+    height: 140px;
     position: absolute;
     bottom: 0px;
-    border-style: solid;
+    /*border-style: solid;*/
 }
 
 #myName-form {
-    position: absolute;
-    bottom: 0;
+    display: flex;
+    height:20px;
+    width:200px;
+    margin-top:5px;
+    margin-left:auto;
 }
 
+#name-id{
+    height:20px;
+    margin-top:auto;
+    background-color: #e36a27;
+}
+
+.myName{
+    height:15px;
+}
 .user-name {
     text-align: center;
     color: white;
@@ -234,7 +240,7 @@ button:hover {
 }
 
 .messages-wrapper {
-    height: 85%;
+    height: 90%;
     width: 20%;
     background-color: #2e2e2e;
     border-radius: 5px;
@@ -279,14 +285,13 @@ button:hover {
     position: relative;
     background: #FFFFFF;
     border: 0px solid #777;
-    margin: 5px 10px;
+    margin: 5px 1px;
     padding: 5px 10px;
     border-radius: 15px;
-    /*width: 400px;*/
+    width: 80%;
     clear: both;
     word-wrap: break-word;
     display: inline-block;
-
 }
 
 .sender_name {
@@ -305,10 +310,10 @@ button:hover {
     position: relative;
     background: #F6E3CE;
     border: 0px solid #777;
-    margin: 5px 10px;
+    margin: 5px 1px;
     padding: 5px 10px;
     border-radius: 15px;
-    /*width: 400px;*/
+    width: 80%;
     clear: both;
     float: right;
     word-wrap: break-word;
