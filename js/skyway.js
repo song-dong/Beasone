@@ -30,10 +30,15 @@
                var vNode = MultiParty.util.createVideoNode(video);
                vNode.setAttribute("class", "peer-video");
                $(vNode).appendTo("#peerVideo");
+             　 $(".peer-video").append("<button class='fullscreen-button'>FullScreen</button>");
            }).on('ms_close', function (peer_id) {
                // peerが切れたら、対象のvideoノードを削除する
                $("#" + peer_id).remove();
            })
+           //mousehoverのアクション
+          $(document).on("mouseenter",".peer-video",function(){
+
+          });
 
            //////////////////////////////////////////
            // Screen size change
@@ -230,6 +235,7 @@
             //  alert($(this).text());
                $(this).text("video " + (mute ? "unmute" : "mute")).data("muted", mute);
                if (mute==true){
+                    $(this).append($("<img src='../img/video.png'>"));
                     $(this).text("unmute");
                 　  $(this).css('color', 'white');
                 　  $(this).css('background-color', '#2e2e2e');
@@ -282,7 +288,7 @@
             $(".messages-wrapper").hide(1000); 
             $("#chat-show-button").show(1000);
             var w = $(".room-wrapper").width()-50;
-            $("#monitorContainer").animate({width:w},2000);
+            $("#monitorContainer").animate({width:w},1500);
         })
         
         $("#chat-show-button").on("click",function(){
