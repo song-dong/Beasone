@@ -1,40 +1,99 @@
+*{
+  margin:0;
+  padding:0;
+}
+body{
+  font-family: 'Open Sans', sans-serif;
+  width:100%;
+}
+
 html,
 body {
     height: 100%;
 }
+/*div{*/
+/*    border:solid gray; */
+/*}*/
 
+interim_span{
+    background-color:pink;
+}
 header {
+    /*position:fixed;*/
+    top:0;
+    left:0;
+    /*z-index:10;*/
+    width:100%;
     display: flex;
     height: 30px;
+    background-color: #FFFFFF;
 }
 
 .room-url{
     margin:0 30px;
 }
 
-.wrapper {
-    height: 100%;
+#info_start{
+    color: white;
+    text-align: center;
 }
 
+.wrapper {
+    height: 100%;
+    width: 100%;
+    /*background: -webkit-linear-gradient(left, #c2e59c, #64b3f4);*/
+    background: -webkit-linear-gradient(top, #00C9FF, #92FE9D);
+    /*background: -webkit-linear-gradient(top, #2AFADF, #4C83FF);*/
+    /*background: -webkit-linear-gradient(left, #43cea2, #185a9d);    */
+  /*background: linear-gradient(45deg, rgba(108,184,255,08), rgba(255,246,108,.8), rgba(255,163,108,.8));*/
+  animation: AnimationName 10s ease infinite;
+  position: absolute;
+  z-index: 2;
+}
+
+/*.img{*/
+/*  width: 600px;*/
+/*  height: 400px;*/
+/*  background: url(http://weblifetimes.com/wp-content/uploads/2016/08/28_2.jpg) no-repeat;*/
+/*  background-size: cover;*/
+/*  position: absolute;*/
+/*  z-index: 1;*/
+/*}*/
+
+/*.gradation{*/
+/*  width: 600px;*/
+/*  height: 400px;*/
+/*  background: linear-gradient(45deg, rgba(108,184,255,08), rgba(255,246,108,.8), rgba(255,163,108,.8));*/
+/*  background-size: 600% 600%;*/
+/*  animation: AnimationName 10s ease infinite;*/
+/*  position: absolute;*/
+/*  z-index: 2;*/
+/*}*/
+ 
 .logo-group {
     height: 30px;
     width: 100%;
     background: white;
 }
-
+/*コンテンツ（ヘッダーフッターの間）*/
 .room-wrapper {
     display: flex;
-    background: -webkit-linear-gradient(left, #5c3e2d, #79492d);
-    height: 100vh;
     width: 100%;
-    /*height: 680px;*/
+    padding-top:10px;
+    margin-top:50px;
+    height:500px;
+    padding-bottom:10px;
+    margin-bottom:80px;
+
 }
 
+
+
 .videochat-wrapper {
-    position: absolute;
+    position: relative;
     margin-right: auto;
     height: 90%;
-    width: 78%;
+    width: 80%;
     bottom: 0;
 }
 
@@ -52,31 +111,24 @@ header {
 }
 
 #monitorContainer {
-    position:absolute;
-    height: 70%;
-    background: url("../img/sea.jpg");
+    /*position:absolute;*/
+    height: 100%;
+    /*background: url("../img/sea.jpg");*/
     background-size: cover;
-    border: solid 20px #9F6C3E;
-    border-radius: 5px 5px 5px 5px;
-    /*bottom:0;*/
-    /*margin:40px 0px 0px 0px;*/
-    width:97%;
+    width:100%;
 }
 
-.videochat-group {
-    display:flex;
-    /*flex-direction: column;*/
-    margin-top:auto;
-    position:relative;
+#translateMsgBox{
+    width:100%; 
+    height:10px;
+    bottom:0;
 }
-
 
 .videochat-room {
     border-style: solid;
     border-width: 20px;
     border-color: #2f1f14;
-
-    width: 45%;
+    /*width: 45%;*/
     margin: 10px;
 }
 
@@ -85,24 +137,30 @@ header {
 }
 
 .peer-video {
-    width: 50%;
+    /*width: 50%;*/
     /*position:absolute;*/
     /*top:0;*/
     /*bottom:0;*/
+    position:relative;
     margin:auto;
-    z-index:0;
-    /*margin-left: 20px;*/
+    z-index:-100;
 }
 
-.fullscreen-button{
-    position:absolute;
-    width:60px;
-    height:30px;
-    background-color:pink;
-    z-index:100;
-    margin:10px;
-}
+/*.interim_span{*/
+/*  position:absolute;*/
+/*  bottom:0;*/
+/*  left:0;*/
+  
+/*}*/
 
+/*.fullscreen-button{*/
+/*    position:absolute;*/
+/*    width:60px;*/
+/*    height:30px;*/
+/*    background-color:pink;*/
+/*    z-index:100;*/
+/*    margin:10px;*/
+/*}*/
 
 .video-box {
     height: 80%;
@@ -111,20 +169,19 @@ header {
     border-style: solid;
 }
 
-
 .my-videochat-room {
     margin: 0px;
     width: 180px;
     height: 140px;
     position: absolute;
     bottom: 0px;
-    /*border-style: solid;*/
 }
 
 #myName-form {
     display: flex;
     height:20px;
     width:200px;
+    margin-right:10px;
     margin-top:5px;
     margin-left:auto;
     text-align: center;
@@ -138,40 +195,12 @@ header {
     color:white;
     font-size:8px;
 }
+
 .user-name {
     text-align: center;
     color: white;
 }
 
-.video-toolbar {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-}
-
-.video-toolbar-group {
-    display: flex;
-    justify-content: center;
-    width: 400px;
-    background-color: #2e2e2e;
-    margin: auto;
-    border-radius: 5px;
-}
-
-.video-toolbar-itemtext {
-    bottom: 0;
-    color: white;
-}
-
-.video-button {
-    border-radius: 5px 0px 0px 5px;
-}
-
-.close-button {
-    background-color: #e36a27;
-    color: white;
-    border-radius: 0px 5px 5px 0px;
-}
 
 button {
     height: 60px;
@@ -209,36 +238,39 @@ button:hover {
     line-height: 19px;
 }
 
-#chat-show-button{
-    width: 50px;
-    height: 50px;
-    background: #e36a27;
-    border-radius: 70px;
-    -moz-border-radius: 70px;
-    -webkit-border-radius: 70px;
-    color: white;
-    display: none;
-    text-align: center;
-    /*font-size: 200%;*/
-    position: absolute;
-    bottom: 0px;
-    right: 20px;
-    line-height: 19px;   
-}
+/*#chat-show-button{*/
+/*    width: 50px;*/
+/*    height: 50px;*/
+/*    background: #e36a27;*/
+/*    border-radius: 70px;*/
+/*    -moz-border-radius: 70px;*/
+/*    -webkit-border-radius: 70px;*/
+/*    color: white;*/
+/*    text-align: center;*/
+/*    position: absolute;*/
+/*    bottom: 130px;*/
+/*    right: 20px;*/
+/*    line-height: 19px;   */
+/*}*/
 
 .messages-wrapper {
-    height: 90%;
-    width: 20%;
+    height: 500px;
+    width: 18%;
     background-color: #2e2e2e;
     border-radius: 5px;
     position: absolute;
-    bottom: 0px;
+    bottom: 130px;
     right: 12px;
+    /*display: none;*/
+    /*background: -webkit-linear-gradient(left, #FEAC5E, #C779D0,#4BC0C8);*/
+    background: -webkit-linear-gradient(left, #73C8A9, #373B44);
+    /*background:white;*/
 }
 
 ::-webkit-scrollbar {
     width: 0px;
 }
+
 .comment-body {
     margin: 10px;
 }
@@ -246,12 +278,10 @@ button:hover {
 #message-form {
     position: absolute;
     bottom: 0px;
-    width: 100%;
+    width: 97%;
 }
 
 .message-text {
-    height: 40px;
-    width: 100%;
     word-wrap: break-word;
 }
 
@@ -262,9 +292,7 @@ button:hover {
     overflow: scroll;
     /*overflow:hidden;*/
 }
-/*scrollbar {*/
-/*    display: none;*/
-/*  }*/
+
 
 /*******************************
 * 左からの吹き出し
@@ -278,7 +306,7 @@ button:hover {
     margin: 5px 1px;
     padding: 5px 10px;
     border-radius: 15px;
-    width: 80%;
+    width: auto;
     clear: both;
     word-wrap: break-word;
     display: inline-block;
@@ -290,6 +318,9 @@ button:hover {
     color: white;
 }
 
+#interim_span{
+    opacity: 0.1;
+}
 
 /*******************************
 * 右からの吹き出し
@@ -303,10 +334,12 @@ button:hover {
     margin: 5px 1px;
     padding: 5px 10px;
     border-radius: 15px;
-    width: 80%;
+    width: auto;
     clear: both;
     float: right;
+    right:1px;
     word-wrap: break-word;
+    display: inline-block;
 }
 
 #message-img{
@@ -315,3 +348,131 @@ button:hover {
     right:20px;
     display: none;
 }
+
+/**************************
+フッター部
+***********************/
+
+.video-footer{
+  position:fixed;
+  bottom:0;
+  left:0;
+  /*z-index:10;*/
+  width:100%;
+  height:60px;
+  /*display:flex;*/
+}
+
+.my-videochat-room{
+    display:flex;
+}
+
+.video-toolbar-group {
+    display: flex;
+    justify-content: center;
+    width: 400px;
+    background-color: #2e2e2e;
+    margin: auto;
+    border-radius: 5px;
+}
+
+.video-toolbar-itemtext {
+    bottom: 0;
+    color: white;
+}
+
+.video-button {
+    border-radius: 5px 0px 0px 5px;
+}
+
+.close-button {
+    background-color: #e36a27;
+    color: white;
+    border-radius: 0px 5px 5px 0px;
+}
+
+#translate-group{
+    width:20%;
+    position:absolute;
+    bottom:0;
+    right:10px;
+    height:120px;
+    /*height:100%;*/
+}
+
+#before-word{
+    width:90%;
+    height:15px;
+}
+
+#final_span{
+  /*border:solid 5px #0ff;*/
+   border:solid 1px gray;
+  width:90%;
+  /*margin:25px auto;*/
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  padding:0px;
+  font-size: 8px;
+  position:absolute;
+  bottom:10px;
+}
+input{
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;    
+}
+input[type="text"],
+textarea {
+  outline: none;
+  /*border: 1px solid #aaa;*/
+  border: gray;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  /*border:solid 5px #0ff;*/
+  border:solid 1px gray;
+  width:90%;
+  /*margin:25px auto;*/
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  padding:10px;
+  font-size: 8px;
+}
+input[type="text"]:focus,
+textarea:focus {
+  box-shadow: 0 0 7px #1abc9c;
+  border: 1px solid #1abc9c;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  border:solid 5px #0ff;
+}
+
+#change{
+    font:#FF4081;
+}
+
+#trans-div{
+    display:flex;
+}
+#trans_word_copy{
+    position:absolute;
+    width:60px;
+    height:30px;
+    right:0;
+    bottom:10px;
+    color:white;
+    
+}
+
+.center{
+    text-align: center;
+}
+
+.custom-select{
+    /*margin:5px;*/
+}
+/*#final_span:hover{*/
+/*    #trans_word_copy:*/
+    
+/*}*/
+
+
+/*************フッターここまで**************/
+/**selectbox********************************
+

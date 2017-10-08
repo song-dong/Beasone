@@ -1,0 +1,121 @@
+/*ヘッダー記述*/
+.navigation{
+    display:flex;
+    position:relative;
+    width:600px;
+    left:100px;
+}
+
+.nav-menu{
+    margin:auto 30px;
+}
+
+/*ここまでヘッダー部*/
+
+/*ここからrow*/
+.row{
+    position:relative;
+    padding:80px 20px 100px;
+    border:solid black;
+    height:300px;
+    width:100%;
+}
+.submit-box{
+    position:absolute;
+    bottom:20px;
+    right:50px;
+}
+.submit-box form input{
+    margin:0px 10px;
+    height:30px;
+    width:200px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.serch-button{
+    height:30px;
+    border-radius: 5px 5px 5px 5px;
+    color:white;
+    background-color:#e36a27;
+    font-size:12px;
+}
+
+/*ここまでrow*/
+
+/*ここからコンテンツ*/
+
+.contaner{
+    width:100%;
+    height:100%;
+}
+.boxes4{
+    display:flex;
+}
+.box{
+    border: solid black;
+    width:25%;
+    height:400px;
+    padding:20px;
+}
+
+.box-in{
+    height:360px;
+    background-color: #fff;
+    border: 1px solid #f6f8fa;
+    -webkit-box-shadow: #e3e4e8 0 4px 0;
+    box-shadow: #e3e4e8 0 4px 0;
+    margin-bottom: 4px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    position: relative;
+    /*padding-bottom: 130px;*/
+    width: 100%;
+}
+
+img{
+    width:auto;
+    height:auto;
+    max-width:100%;
+    max-height:100%;
+}
+
+.box-title{
+    padding:10px;
+}
+
+.box-title a{
+    display: block;
+    color:#222;
+    width:100px;
+    word-wrap: break-word;
+    text-decoration:none;
+}
+
+.box-company-data{
+    padding:10px 0px;
+    position:relative;
+    height:60px;
+    width:100%;
+    /*border:solid black;*/
+    display:flex;
+    font-size:9px;
+    /*padding:10px;*/
+}
+
+.box-company-data p{
+    position:absolute;
+    top:30px;
+}
+.company-title{
+    left:5px;
+}
+
+.company-name{
+    right:5px;
+}
+
+.box-over-view{
+    font-size:9px;
+}

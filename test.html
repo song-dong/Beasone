@@ -16,14 +16,36 @@
             border-style:solid;
             backgroung-size: cover;
         }
+        #select2{
+            width:200px;
+            height:30px;
+        }
+
+        div{
+            height:150px;
+            border-style:solid;
+        }
+        input{
+            width:300px;
+        }
     </style>
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="js/test.js"></script>
-
-    <title>Document</title>
+    <!--<script type="text/javascript" src="js/speech.js"></script>-->
+    <script type="text/javascript" src="js/speech-test.js"></script>
+    <title>Speech to text</title>
 </head>
 <body>
     <!--<div id = "share">hello world</div>-->
-    <button id="color">unmute</button>
+    <!--<button id="color">unmute</button>-->
+    <button id="start_button" height="20" width="200">push</button>
+    <input type="select" id="select_dialect" value="ja-JP" name=""/>
+    <div id="select2" value="ja">speech</div>
+    <div id="final_span" height="50" width="100"></div>
+    <div id="interim_span" height="50" width="100"></div>
+    <input type="text" value="" name="" id="myName" width="300" height="300"/>
+
+
+    <div id="japanese" height="300"></div>
 </body>
 </html>
